@@ -1,8 +1,12 @@
+const mongoose = require('mongoose')
+const connectDB = require('./config/database')
 const express = require('express')
 
 const app = express()
 
 require('dotenv').config({ path: './config/.env' })
+
+connectDB()
 
 // Body parser
 app.use(express.urlencoded({ extended: true }))
