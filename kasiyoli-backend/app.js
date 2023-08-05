@@ -1,6 +1,8 @@
+const express = require('express')
 const mongoose = require('mongoose')
 const connectDB = require('./config/database')
-const express = require('express')
+const homeRoutes = require('./routes/home')
+const cors = require('cors')
 
 const app = express()
 
@@ -11,6 +13,10 @@ connectDB()
 // Body parser
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
+app.use(cors())
+
+app.use('/', homeRoutes)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
