@@ -2,8 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node server",
+    "dev": "nodemon server",
+    "build": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JyotirmoyDas@zephyr",
