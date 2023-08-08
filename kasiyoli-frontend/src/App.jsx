@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import Menu from './components/Menu'
+import Login from './components/Admin/Login'
 import './App.css'
 
 function App() {
@@ -9,6 +11,7 @@ function App() {
 
   const [listOfUsers, setListOfUsers] = useState([])
 
+ 
   useEffect(() => {
     axios.get('http://localhost:5000/').then((response) => {
       setListOfUsers(response.data)
@@ -16,6 +19,7 @@ function App() {
   }, [])
 
   return (
+
     <>
 
       <nav>
@@ -59,7 +63,19 @@ function App() {
           )
         })} 
       </div>
+      
+      <BrowserRouter>
+        <Switch>
+          
+          <Route path="/admin">
+            <Login />
+          </Route>
+          
+        </Switch>
+      </BrowserRouter>      
+
     </>
+
   )
 }
 
