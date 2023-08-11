@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
+const adminRoutes = require('./routes/admin')
 const cors = require('cors')
 
 const app = express()
@@ -17,6 +18,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/', homeRoutes)
+app.use('/admin', adminRoutes)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
