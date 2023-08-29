@@ -1,22 +1,25 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import axios from 'axios'
+import { useState } from 'react'
 import Menu from './components/Menu'
-import Login from './components/Admin/Login'
+import MagazineCards from './components/MagazineCard';
 import './App.css'
+import SidebarCard from './components/SidebarCard';
+import postLinks from './postLinks.js';
+import Editorial from './pages/Editorial';
+import Interview from './pages/Interview';
+import Introduction from './components/Introduction';
 
 function App() {
 
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const [listOfUsers, setListOfUsers] = useState([])
-
- 
-  useEffect(() => {
-    axios.get('http://localhost:5000/').then((response) => {
-      setListOfUsers(response.data)
-    })
-  }, [])
+  const postLinkCards = postLinks.map(item => {
+    return (
+      <SidebarCard 
+        title = {item.title}
+        content = {item.content}
+      />
+    )
+  })
 
   return (
 
@@ -53,26 +56,18 @@ function App() {
         </div>
       </nav>
 
-      <div>
-        {listOfUsers.map((user) => {
-          return (
-            <div>
-              <h3>Username : { user.userName } </h3>
-              <h3>Email : { user.email } </h3>
-            </div>
-          )
-        })} 
-      </div>
+      <MagazineCards />
+
+      <SidebarCard />
+
+      <section>
+        {postLinkCards}
+      </section>
+
       
-      <BrowserRouter>
-        <Switch>
-          
-          <Route path="/admin">
-            <Login />
-          </Route>
-          
-        </Switch>
-      </BrowserRouter>      
+      <Editorial />
+      <Interview />
+      
 
     </>
 
