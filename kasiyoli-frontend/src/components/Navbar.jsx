@@ -26,12 +26,24 @@ const Menu = () => {
                     className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
                 >
                     সম্পাদনা সমিতি
+                </NavLink>
+                <NavLink 
+                    to="/welcome"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    শুভেচ্ছা বাণী
                 </NavLink>                      
                 <NavLink 
                     to="/interview"
                     className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
                 >
                     অন্তৰংগ আলাপ
+                </NavLink>
+                <NavLink 
+                    to="/postCardContent"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    তথ্যকোষ
                 </NavLink>
             </div>
           </div>

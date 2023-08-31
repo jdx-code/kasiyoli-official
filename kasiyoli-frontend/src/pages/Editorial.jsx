@@ -1,13 +1,13 @@
 import introductionDB from '../introductionDB';
-import Introduction from '../components/Introduction';
+import MainLayout from '../components/MainLayout';
 
 const Editorial = () => {
 
     const filteredContent = introductionDB.filter(item => item.type == 'editorial')    
-    // console.log(filteredContent); // Add this line
+    
     const editorialContent = filteredContent.map(item => {
         return (
-            <Introduction             
+            <MainLayout             
             content = {item.content}
             img = {item.img}
             />

@@ -1,16 +1,16 @@
 import introductionDB from '../introductionDB';
-import Introduction from '../components/Introduction';
+import MainLayout from '../components/MainLayout';
 
 const Interview = () => {
 
     const filteredContent = introductionDB.filter(item => item.type == 'interview')    
-    // console.log(filteredContent); // Add this line
+    
     const interviewContent = filteredContent.map(item => {
         return (
-            <Introduction
-            key={item.id}             
-            content = {item.content}
-            img = {item.img}
+            <MainLayout
+                key={item.id}             
+                content = {item.content}
+                img = {item.img}
             />
         )        
     })

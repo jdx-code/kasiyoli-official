@@ -2,12 +2,12 @@ const SidebarCard = (props) => {
     return(
         <>
             <div class="container">
-                <div class="row row-cols-1 row-cols-md-3 g-5 flex justify-center my-2">
+                <div class="row row-cols-1 row-cols-md-10 g-5 flex justify-center my-2">
                     <div class="col">
                         {props.img ? (
                         <img src={props.img} />
                         ) : (
-                        <div class="card h-100">
+                        
                             <div class="card">
                                 <div class="card-body elegant-color white-text rounded-bottom">
                                     <h4 class="card-title">{props.title ? props.title : 'hahhaha'}</h4>
@@ -30,7 +30,7 @@ const SidebarCard = (props) => {
                                     </a>
                                 </div>
                             </div>  
-                        </div>
+                        
                         )}                        
                     </div>
                 </div>
