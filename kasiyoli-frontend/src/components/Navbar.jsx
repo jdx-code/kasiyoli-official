@@ -8,7 +8,7 @@ const Menu = () => {
 
     return(
 
-        <nav>
+      <nav>
         <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4">
           <div className="flex-shrink-0 font-bold tracking-wider">
             <p>Kasiy7oli</p>
@@ -45,6 +45,13 @@ const Menu = () => {
                 >
                     তথ্যকোষ
                 </NavLink>
+                <NavLink 
+                    to="/gallery"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    আলোক চিত্ৰ 
+                </NavLink>
+                
             </div>
           </div>
           <button

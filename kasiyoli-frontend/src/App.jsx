@@ -6,6 +6,7 @@ import Editorial from './pages/Editorial'
 import Interview from './pages/Interview'
 import Welcome from './pages/Welcome'
 import PostCardContent from './pages/PostCardContent'
+import Gallery from './pages/Gallery'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/interview" element={<Interview />} />
             <Route path="/postCardContent" element={<PostCardContent />} />
+            <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </>
   )
