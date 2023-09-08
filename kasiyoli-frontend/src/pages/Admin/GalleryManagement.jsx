@@ -10,19 +10,10 @@ const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0])
 }
 
-const handleChange = (event) => {
-  setDesc(prevDesc => {
-    return{
-        ...prevDesc,
-        [event.target.name]: event.target.value
-    }
-  })
-}
-
 const formData = new FormData()
 
-const handleSubmit = () => {
-
+const handleSubmit = (event) => {
+    event.preventDefault()
     formData.append('file', selectedFile)
     formData.append('desc', desc)
 
@@ -57,7 +48,7 @@ const handleSubmit = () => {
         <input 
             type='text'
             placeholder='Description'
-            onChange={handleChange}
+            onChange={(event) => setDesc(event.target.value)}
             name='desc'
             value={desc}
         />
