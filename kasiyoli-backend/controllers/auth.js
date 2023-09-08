@@ -4,6 +4,9 @@ const User = require('../models/User')
 const Category = require('../models/Category')
 const SubCategory = require('../models/SubCategory')
 const Post = require('../models/Post')
+const Gallery = require('../models/Gallery')
+const cloudinary = require('../middleware/cloudinary')
+const { render } = require('ejs')
 
 module.exports = {
   getIndex : (req, res) => {
@@ -27,7 +30,7 @@ module.exports = {
     try{
       await Category.create({
         categoryName: req.body.categoryName,
-        description: req.body.description,        
+        categoryDesc: req.body.categoryDesc,        
       })
       return res.status(200).json({
         message: "Successfully created",
@@ -94,7 +97,8 @@ module.exports = {
 
   getSubCategory: async (req, res) => {
     try{
-      const subCategory = await SubCategory.find()
+      const category = await Category.find()
+      const subCategory = await SubCategory.find().populate('category')
       return res.json(subCategory)
     }catch(err){
       console.error(err)
@@ -104,7 +108,7 @@ module.exports = {
   addSubCategory: async (req, res) => {
     try{
       await SubCategory.create({
-        category: req.body.category,
+        category: req.body.categoryName,
         subCategory: req.body.subCategory,
         subCategoryDesc: req.body.subCategoryDesc
       })
@@ -247,6 +251,41 @@ module.exports = {
     }catch(err){
       return res.status(500).json({
         message:"Not Deleted",
+        success:false
+      })
+    }
+  },
+
+  getGallary: async (req, res) => {
+    try{
+      const gallery = await Gallery.find()
+      res.render('gallery',{
+        gallery,
+      })
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Found",
+        success:false
+      })
+    }
+  },
+
+  addGallery: async (req, res) => {
+    try{
+      // Upload the file to Cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+      const imageUrl = result.secure_url;
+      const cloudinary_id = result.public_id
+      await Gallery.create({
+          file: imageUrl,
+          description: req.body.desc,
+          cloudinary_id,
+      })
+      console.log('file added')
+      res.redirect('/admin/gallery')
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Add",
         success:false
       })
     }

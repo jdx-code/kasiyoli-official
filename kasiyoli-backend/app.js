@@ -5,11 +5,14 @@ const homeRoutes = require('./routes/home')
 const adminRoutes = require('./routes/admin')
 const cors = require('cors')
 
+
 const app = express()
 
 require('dotenv').config({ path: './config/.env' })
 
 connectDB()
+
+app.set('view engine', 'ejs')
 
 // Body parser
 app.use(express.urlencoded({ extended: true }))

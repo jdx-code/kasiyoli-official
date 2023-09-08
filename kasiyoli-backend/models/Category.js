@@ -5,7 +5,7 @@ const CategorySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    description : {
+    categoryDesc : {
         type: String,
     },
     creationDate: {

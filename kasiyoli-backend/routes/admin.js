@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const authController = require('../controllers/auth')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
+const upload = require('../middleware/multer')
 
 router.get('/', authController.getIndex)
 
@@ -22,5 +23,8 @@ router.post('/add-post', authController.addPost)
 router.get('/get-post/:id', authController.getPostById)
 router.put('/edit-post/:id', authController.editPost)
 router.delete('/delete-post/:id', authController.deletePost)
+
+router.get('/gallery', authController.getGallary)
+router.post('/add-gallery', upload.single('file'), authController.addGallery)
 
 module.exports = router
