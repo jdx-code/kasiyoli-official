@@ -4,8 +4,10 @@ import Sidebar from "../../components/Sidebar"
 
 const Category = () => {
 
-    const [formData, setFormData] = useState(
-        {categoryName: "", categoryDesc: ""}
+    const [formData, setFormData] = useState({
+            categoryName: "", 
+            categoryDesc: ""
+        }
     )
     const [data, setData] = useState({})
 

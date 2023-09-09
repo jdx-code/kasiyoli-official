@@ -7,6 +7,7 @@ const Post = require('../models/Post')
 const Gallery = require('../models/Gallery')
 const cloudinary = require('../middleware/cloudinary')
 const { render } = require('ejs')
+const Volume = require('../models/Volume')
 
 module.exports = {
   getIndex : (req, res) => {
@@ -182,7 +183,10 @@ module.exports = {
       const post = await Post.find()
       return res.json(post)
     }catch(err){
-
+      return res.status(500).json({
+        message:"Not Found",
+        success:false
+      })
     }
   },
 
@@ -261,9 +265,7 @@ module.exports = {
   getGallary: async (req, res) => {
     try{
       const gallery = await Gallery.find()
-      res.render('gallery',{
-        gallery,
-      })
+      return res.json(gallery)
     }catch(err){
       return res.status(500).json({
         message:"Not Found",
@@ -284,10 +286,43 @@ module.exports = {
           cloudinary_id,
       })
       console.log('file added')
-      res.redirect('/admin/gallery')
     }catch(err){
       return res.status(500).json({
         message:"Not Add",
+        success:false
+      })
+    }
+  },
+
+  getVolume: async (req, res) => {
+    try{
+      const volume = await Volume.find()
+      return res.json(volume)
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Found",
+        success:false
+      })
+    }
+  },
+
+  addVolume: async (req, res) => {
+    try{
+      // Upload the file to Cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+      const imageUrl = result.secure_url;
+      const cloudinary_id = result.public_id
+      await Volume.create({
+        volumeYear: req.body.volumeYear,
+        volumeNum: req.body.volumeNum,
+        volumeEditor: req.body.volumeEditor,
+        coverImage: imageUrl,
+        cloudinary_id,
+      })
+      console.log("Volume added")
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Found",
         success:false
       })
     }

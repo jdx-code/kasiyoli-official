@@ -27,4 +27,7 @@ router.delete('/delete-post/:id', authController.deletePost)
 router.get('/gallery', authController.getGallary)
 router.post('/add-gallery', upload.single('file'), authController.addGallery)
 
+router.get('/volume', authController.getVolume)
+router.post('/add-volume', upload.single('coverImage'), authController.addVolume)
+
 module.exports = router

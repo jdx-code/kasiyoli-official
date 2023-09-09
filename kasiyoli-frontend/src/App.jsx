@@ -11,7 +11,8 @@ import Dashboard from './pages/Admin/Dashboard'
 import Category from './pages/Admin/Category'
 import SubCategory from './pages/Admin/SubCategory'
 import GalleryManagement from './pages/Admin/GalleryManagement'
-import PostManager from './pages/Admin/PostManager'
+import VolumeManage from './pages/Admin/VolumeManage'
+import Art from './pages/Art'
 
 
 function App() {
@@ -27,12 +28,14 @@ function App() {
             <Route path="/interview" element={<Interview />} />
             <Route path="/postCardContent" element={<PostCardContent />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path='/art' element={<Art />} />
 
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/category" element={<Category />} />
             <Route path="/sub-category" element={<SubCategory />} />
             <Route path='/gallery-management' element={<GalleryManagement />}/>
             <Route path='/post-manager' element={<PostManager />}/>
+            <Route path='/volume-manage' element={<VolumeManage />} />
         </Routes>
       </>
     )
