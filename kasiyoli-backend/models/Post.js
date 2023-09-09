@@ -6,12 +6,10 @@ const PostSchema = new mongoose.Schema({
         required: true,
     },
     category: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
+        type: String,        
     },
     subCategory: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'SubCategory',
+        type: String,
     },
     postContent: {
         type: String,

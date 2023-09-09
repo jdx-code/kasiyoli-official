@@ -194,6 +194,8 @@ module.exports = {
         subCategory: req.body.subCategory,
         postContent: req.body.postContent
       })
+
+      console.log('post added')
       return res.status(200).json({
         message: "Successfully created",
         success: true

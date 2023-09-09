@@ -11,6 +11,7 @@ import Dashboard from './pages/Admin/Dashboard'
 import Category from './pages/Admin/Category'
 import SubCategory from './pages/Admin/SubCategory'
 import GalleryManagement from './pages/Admin/GalleryManagement'
+import PostManager from './pages/Admin/PostManager'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="/category" element={<Category />} />
             <Route path="/sub-category" element={<SubCategory />} />
             <Route path='/gallery-management' element={<GalleryManagement />}/>
+            <Route path='/post-manager' element={<PostManager />}/>
         </Routes>
       </>
     )
