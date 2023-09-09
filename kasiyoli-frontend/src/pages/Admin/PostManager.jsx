@@ -1,28 +1,59 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
 
 export default function PostManager() {
-  const [postTitle, setPostTitle] = useState('');
-  const [category, setCategory] = useState('');
-  const [subCategory, setSubCategory] = useState('');
+
+  const editorRef = useRef(null);  
+
+  const [formData, setFormData] = useState({
+      postTitle: "",
+      category: "",
+      subCategory: "",         
+    }
+  )
+
   const [editorContent, setEditorContent] = useState('');
 
-  const editorRef = useRef(null);
+  const [categories, setCategories] = useState([]); // Store categories here
+  const [subCategories, setSubCategories] = useState([]); // Store sub-categories here
+
+  useEffect(() => {
+    // Fetch categories from the server when the component mounts
+    axios.get('http://localhost:5000/admin/category')
+    .then((res) => {
+        setCategories(res.data);
+    })
+    .catch((error) => {
+        console.error('Error fetching categories:', error);
+    });
+  }, []); // Empty dependency array to run the effect only once
+
+  useEffect(() => {
+    // Fetch categories from the server when the component mounts
+    axios.get('http://localhost:5000/admin/sub-category')
+    .then((res) => {
+        setSubCategories(res.data);
+    })
+    .catch((error) => {
+        console.error('Error fetching categories:', error);
+    });
+  }, []); // Empty dependency array to run the effect only once
+
 
   const handleEditorChange = (content, editor) => {
     setEditorContent(content);
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       // Send all the data to your Express backend
       const response = await axios.post('http://localhost:5000/admin/add-post', {
-        postTitle,
-        category,
-        subCategory,
+        postTitle: formData.postTitle,
+        category: formData.category,
+        subCategory: formData.subCategory,
         postContent: editorContent,
       });
 
@@ -30,15 +61,21 @@ export default function PostManager() {
       console.log(response.data);
 
       // Clear the form fields after submission if needed
-      setPostTitle('');
-      setCategory('');
-      setSubCategory('');
-      setEditorContent('');
+      setFormData('');      
     } catch (error) {
       console.error('Error sending data to the backend', error);
     }
   };
 
+  const handleChange = (event) => {
+      setFormData(prevFormData => {
+          return{
+              ...prevFormData,
+              [event.target.name]: event.target.value
+          }
+      })
+  }
+  
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -46,31 +83,41 @@ export default function PostManager() {
           <label htmlFor="postTitle">Post Title:</label>
           <input
             type="text"
-            id="postTitle"
-            value={postTitle}
-            onChange={(e) => setPostTitle(e.target.value)}
+            name="postTitle"            
+            onChange={handleChange}
+            value={formData.postTitle}
             required
           />
         </div>
         <div>
-          <label htmlFor="category">Category:</label>
-          <input
-            type="text"
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            required
-          />
+          <label htmlFor="category">Category:</label>          
+          <select
+              onChange={handleChange}
+              name="category"
+              value={formData.category}
+          >
+              <option value="">Select a category</option>
+              {categories.map((cat) => (
+                  <option key={cat._id} value={cat._id}>
+                  {cat.categoryName}
+                  </option>
+              ))}
+          </select>
         </div>
         <div>
           <label htmlFor="subCategory">Sub Category:</label>
-          <input
-            type="text"
-            id="subCategory"
-            value={subCategory}
-            onChange={(e) => setSubCategory(e.target.value)}
-            required
-          />
+          <select
+              onChange={handleChange}
+              name="subCategory"
+              value={formData.subCategory}
+          >
+              <option value="">Select a category</option>
+              {subCategories.map((subcat) => (
+                  <option key={subcat._id} value={subcat._id}>
+                  {subcat.subCategory}
+                  </option>
+              ))}
+          </select>
         </div>
         <Editor
           onInit={(evt, editor) => (editorRef.current = editor)}
