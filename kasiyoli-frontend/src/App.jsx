@@ -13,6 +13,7 @@ import SubCategory from './pages/Admin/SubCategory'
 import GalleryManagement from './pages/Admin/GalleryManagement'
 import VolumeManage from './pages/Admin/VolumeManage'
 import Art from './pages/Art'
+import PostManager from './pages/Admin/PostManager'
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
             <Route path="/category" element={<Category />} />
             <Route path="/sub-category" element={<SubCategory />} />
             <Route path='/gallery-management' element={<GalleryManagement />}/>
-            <Route path='/post-manager' element={<PostManager />}/>
+            <Route path='/post-manager' element={<PostManager /> } />
             <Route path='/volume-manage' element={<VolumeManage />} />
         </Routes>
       </>
