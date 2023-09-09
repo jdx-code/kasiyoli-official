@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
+import Sidebar from '../../components/Sidebar'
 
 const SubCategory = () => {
-    const [formData, setFormData] = useState(
-        {categoryName: "", subCategory: "", subCategoryDesc: ""}
+    const [formData, setFormData] = useState({
+            categoryName: "",
+            subCategory: "", 
+            subCategoryDesc: ""
+        }
     )
 
     const [categories, setCategories] = useState([]); // Store categories here
@@ -47,53 +51,64 @@ const SubCategory = () => {
     }, []); // Empty dependency array to run the effect only once
 
     return (
-        <div>
-        <form onSubmit={handleSubmit}>
-            <select
-                onChange={handleChange}
-                name="categoryName"
-                value={formData.categoryName}
-                >
-                <option value="">Select a category</option>
-                {categories.map((category) => (
-                    <option key={category._id} value={category._id}>
-                    {category.categoryName}
-                    </option>
-                ))}
-            </select>
-            <input 
-                type='text'
-                placeholder='Sub Category'
-                onChange={handleChange}
-                name="subCategory"
-                value={formData.subCategory}
-            />
-            <input 
-                type='text'
-                placeholder='Sub-Category Description'
-                onChange={handleChange}
-                name="subCategoryDesc"
-                value={formData.subCategoryDesc}
-            />
-            <button>Submit</button>
-        </form>
+        <div class="row">
+            <div class="col-sm-2">
+                <Sidebar />
+            </div>
+            <div class="col-md-10">
+                   
+            <form onSubmit={handleSubmit}>
+                <select
+                    onChange={handleChange}
+                    name="categoryName"
+                    value={formData.categoryName}
+                    >
+                    <option value="">Select a category</option>
+                    {categories.map((category) => (
+                        <option key={category._id} value={category._id}>
+                        {category.categoryName}
+                        </option>
+                    ))}
+                </select>
+                <input 
+                    type='text'
+                    placeholder='Sub Category'
+                    onChange={handleChange}
+                    name="subCategory"
+                    value={formData.subCategory}
+                />
+                <input 
+                    type='text'
+                    placeholder='Sub-Category Description'
+                    onChange={handleChange}
+                    name="subCategoryDesc"
+                    value={formData.subCategoryDesc}
+                />
+                <button>Submit</button>
+            </form>
 
-        <button onClick={getSubCategory}>Get SubCategory</button>
-        <div>
-            {data.length > 0 ? (
-                    data.map((dataObj) => (
-                        <div key={dataObj._id}>
-                            <p>Category Name: {dataObj.category.categoryName}</p>
-                            <p>Sub Category Name: {dataObj.subCategory}</p>
-                            <p>Sub Category Description: {dataObj.subCategoryDesc}</p>
-                        </div>
-                    ))
-                ) : (
-                    <p>No data available.</p>
-                )} 
-        </div>
+            <button onClick={getSubCategory}>Get SubCategory</button>
+            <div>
+                {data.length > 0 ? (
+                        data.map((dataObj) => (
+                            <div key={dataObj._id}>
+                                <p>Category Name: {dataObj.category.categoryName}</p>
+                                <p>Sub Category Name: {dataObj.subCategory}</p>
+                                <p>Sub Category Description: {dataObj.subCategoryDesc}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No data available.</p>
+                    )} 
+            </div>
 
-        </div>
+            </div>
+         </div>
+
+        
+        
+
+      
     )
     }
 

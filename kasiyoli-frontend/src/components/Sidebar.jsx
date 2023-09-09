@@ -5,7 +5,9 @@ const Sidebar = () => {
         <>
             <div class="sidebar">
                 <a href="#home">Home</a>
+                <a href='/volume-manage'>Volume Manage</a>
                 <a href="/category">Category</a>
+                <a href='/sub-category'>Sub Category</a>
 
                 <div class="dropdown">
                     <a href="" class="dropdown-toggle" data-bs-toggle="dropdown">
@@ -18,7 +20,7 @@ const Sidebar = () => {
                     </ul>   
                 </div>
 
-                <a href="/gallery">Gallery</a>
+                <a href="/gallery-management">Gallery</a>
                 <a href="#about">About</a>
             </div>
 

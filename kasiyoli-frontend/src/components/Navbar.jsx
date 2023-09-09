@@ -51,6 +51,13 @@ const Menu = () => {
                 >
                     আলোক চিত্ৰ 
                 </NavLink>
+
+                <NavLink 
+                    to="/gallery"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    ছবি
+                </NavLink>
                 
             </div>
           </div>

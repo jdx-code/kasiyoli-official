@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Sidebar from '../../components/Sidebar'
 
 function GalleryManagement() {
 
@@ -32,30 +33,38 @@ const handleSubmit = (event) => {
 
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <p>
-        <label>File : </label>
-        <input 
-            type='file'
-            placeholder='Select File'
-            onChange={handleFileChange}
-            name='file'
-        />
-        </p>
-        <p>
-        <label>Caption/Description : </label>
-        <input 
-            type='text'
-            placeholder='Description'
-            onChange={(event) => setDesc(event.target.value)}
-            name='desc'
-            value={desc}
-        />
-        </p>
-        <button>Submit</button>
-      </form>
+    <div class="row">
+        <div class="col-sm-2">
+            <Sidebar />
+        </div>
+        <div class="col-md-10">
+            
+        <form onSubmit={handleSubmit}>
+          <p>
+          <label>File : </label>
+          <input 
+              type='file'
+              placeholder='Select File'
+              onChange={handleFileChange}
+              name='file'
+          />
+          </p>
+          <p>
+          <label>Caption/Description : </label>
+          <input 
+              type='text'
+              placeholder='Description'
+              onChange={(event) => setDesc(event.target.value)}
+              name='desc'
+              value={desc}
+          />
+          </p>
+          <button>Submit</button>
+        </form>
+
+        </div>
     </div>
+    
   )
 }
 
