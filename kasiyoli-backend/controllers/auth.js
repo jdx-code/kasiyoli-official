@@ -197,7 +197,8 @@ module.exports = {
         postTitle: req.body.postTitle,
         category: req.body.category,
         subCategory: req.body.subCategory,
-        postContent: req.body.postContent
+        volume: req.body.volume,
+        postContent: req.body.postContent,
       })
 
       console.log('post added')

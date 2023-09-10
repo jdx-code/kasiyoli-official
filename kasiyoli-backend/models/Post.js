@@ -13,6 +13,10 @@ const PostSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'SubCategory',
     },
+    volume: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Volume',
+    },
     postContent: {
         type: String,
         required: true,
