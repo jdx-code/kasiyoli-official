@@ -279,7 +279,10 @@ module.exports = {
   addGallery: async (req, res) => {
     try{
       // Upload the file to Cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
+      const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: "kasiyoli"
+      })
+
       const imageUrl = result.secure_url;
       const cloudinary_id = result.public_id
       await Gallery.create({
