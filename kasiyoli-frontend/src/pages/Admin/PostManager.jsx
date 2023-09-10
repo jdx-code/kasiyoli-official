@@ -9,7 +9,8 @@ export default function PostManager() {
   const [formData, setFormData] = useState({
       postTitle: "",
       category: "",
-      subCategory: "",         
+      subCategory: "", 
+      volume: "",        
     }
   )
 
@@ -17,6 +18,7 @@ export default function PostManager() {
 
   const [categories, setCategories] = useState([]); // Store categories here
   const [subCategories, setSubCategories] = useState([]); // Store sub-categories here
+  const [volume, setVolume] = useState([]); // Store sub-categories here
 
   useEffect(() => {
     // Fetch categories from the server when the component mounts
@@ -40,6 +42,17 @@ export default function PostManager() {
     });
   }, []); // Empty dependency array to run the effect only once
 
+  useEffect(() => {
+    // Fetch categories from the server when the component mounts
+    axios.get('http://localhost:5000/admin/volume')
+    .then((res) => {
+        setVolume(res.data);
+    })
+    .catch((error) => {
+        console.error('Error fetching volume:', error);
+    });
+  }, []); // Empty dependency array to run the effect only once
+
 
   const handleEditorChange = (content, editor) => {
     setEditorContent(content);
@@ -54,6 +67,7 @@ export default function PostManager() {
         postTitle: formData.postTitle,
         category: formData.category,
         subCategory: formData.subCategory,
+        volume: formData.volume,
         postContent: editorContent,
       });
 
@@ -115,6 +129,21 @@ export default function PostManager() {
               {subCategories.map((subcat) => (
                   <option key={subcat._id} value={subcat._id}>
                   {subcat.subCategory}
+                  </option>
+              ))}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="volume">Volume:</label>
+          <select
+              onChange={handleChange}
+              name="volume"
+              value={formData.volume}
+          >
+              <option value="">Select a volume</option>
+              {volume.map((vol) => (
+                  <option key={vol._id} value={vol._id}>
+                  {vol.volumeNum}
                   </option>
               ))}
           </select>
