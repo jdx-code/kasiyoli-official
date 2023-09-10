@@ -8,5 +8,20 @@ export default [
         "id" : 2,        
         "name" : "kuki baruah",
         "image" : "/img/book2.jpg"    
-    },      
+    }, 
+    {
+        "id" : 2,        
+        "name" : "kuki baruah",
+        "image" : "/img/book2.jpg"    
+    },  
+    {
+        "id" : 2,        
+        "name" : "kuki baruah",
+        "image" : "/img/book2.jpg"    
+    },  
+    {
+        "id" : 2,        
+        "name" : "kuki baruah",
+        "image" : "/img/book2.jpg"    
+    },       
 ]

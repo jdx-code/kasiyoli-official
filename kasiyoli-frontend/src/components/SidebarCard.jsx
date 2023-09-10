@@ -4,7 +4,7 @@ const SidebarCard = (props) => {
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-10 g-5 flex justify-center my-2">
                     <div class="col">
-                        {props.img ? (
+                        {props.img ? ( 
                         <img src={props.img} />
                         ) : (
                         

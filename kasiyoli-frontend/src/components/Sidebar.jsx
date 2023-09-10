@@ -21,6 +21,7 @@ const Sidebar = () => {
                 </div>
 
                 <a href="/gallery-management">Gallery</a>
+                <a href='/photo-manage'>Photo</a>
                 <a href="#about">About</a>
             </div>
 
