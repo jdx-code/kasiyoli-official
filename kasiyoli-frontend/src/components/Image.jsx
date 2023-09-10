@@ -4,36 +4,36 @@ const Image = (props) => {
         <>
             <div className="container">    
      
-                <div class="row row-cols-1 row-cols-md-6 g-5 flex justify-center my-12">                
+                <div className="row row-cols-1 row-cols-md-6 g-5 flex justify-center my-12">                
                     {props.data.map((item) => {
                         return(
-                            <div class="col border-4 rounded-lg border-blue-400 mx-4">                                                                
-                            <div class="card">
+                            <div className="col border-4 rounded-lg border-blue-400 mx-4">                                                                
+                            <div className="card">
                                 {item.file ? (
                                     <a href={item.file} data-fancybox="gallery" data-caption="Caption #2">
-                                        <img src={item.file} />
+                                        <img src={item.file} className="card-img-top w-full h-72" />
                                     </a>
                                 ):(
                                     <a href={item.image} data-fancybox="gallery" data-caption="Caption #2">
-                                        <img src={item.image} />
+                                        <img src={item.image} className="card-img-top w-full h-72" />
                                     </a>
                                 )}
                                 {item.description ? (                              
-                                    <div class="card-body">
-                                        <h5 class="card-title">{item.description}</h5>
-                                        <p class="card-text">
+                                    <div className="card-body">
+                                        <h5 className="card-title">{item.description}</h5>
+                                        <p className="card-text">
                                         </p>
                                     </div>
                                 ):(
-                                    <div class="card-body">
-                                        <h5 class="card-title">{item.studentName}</h5>
-                                        <p class="card-text">
+                                    <div className="card-body">
+                                        <h5 className="card-title">{item.studentName}</h5>
+                                        <p className="card-text">
                                         </p>
                                     </div>
                                 )}
 
-                                <div class="card-footer">
-                                    <small class="text-muted"></small>
+                                <div className="card-footer">
+                                    <small className="text-muted"></small>
                                 </div>
                             </div>
                         </div>

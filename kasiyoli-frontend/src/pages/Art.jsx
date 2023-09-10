@@ -13,7 +13,7 @@ function Art() {
           setData(res.data)            
       })
       .catch((error) => {
-          console.error('Error fetching categories:', error);
+          console.error('Error fetching Photo:', error);
       });
   }, []); // Empty dependency array to run the effect only once    
   
