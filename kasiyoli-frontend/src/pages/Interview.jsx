@@ -1,4 +1,4 @@
-import introductionDB from '../introductionDB';
+import introductionDB from '../staticDB/introductionDB';
 import MainLayout from '../components/MainLayout';
 
 const Interview = () => {

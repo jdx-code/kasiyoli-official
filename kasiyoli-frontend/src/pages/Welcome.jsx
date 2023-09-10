@@ -1,4 +1,4 @@
-import welcomeDB from "../welcomeDB"
+import welcomeDB from "../staticDB/welcomeDB"
 import MainLayout from "../components/MainLayout"
 
 const Welcome = () => {
