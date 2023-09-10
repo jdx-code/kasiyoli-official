@@ -8,6 +8,7 @@ const Gallery = require('../models/Gallery')
 const cloudinary = require('../middleware/cloudinary')
 const { render } = require('ejs')
 const Volume = require('../models/Volume')
+const Photo = require('../models/Photo')
 
 module.exports = {
   getIndex : (req, res) => {
@@ -262,7 +263,7 @@ module.exports = {
     }
   },
 
-  getGallary: async (req, res) => {
+  getGallery: async (req, res) => {
     try{
       const gallery = await Gallery.find()
       return res.json(gallery)
@@ -327,5 +328,39 @@ module.exports = {
       })
     }
   },
+
+  getPhoto: async (req, res) => {
+    try{
+      const photo = await Photo.find()
+      return res.json(photo)
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Found",
+        success:false
+      })
+    }
+  },
+
+  addPhoto: async (req, res) => {
+    try{
+      // Upload the file to Cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+      const imageUrl = result.secure_url;
+      const cloudinary_id = result.public_id
+      await Photo.create({
+        title: req.body.title,
+        image: imageUrl,
+        studentName: req.body.studentName,
+        cloudinary_id,
+      })
+      console.log("Volume added")
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Added",
+        success:false
+      })
+    }
+  }
+
 }
 
