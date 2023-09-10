@@ -12,8 +12,8 @@ const MainLayout = (props) => {
         <div key={item.id}>
             {item.question ? (
                 <div>
-                    <p>Question: {item.question}</p>
-                    <p>Answer: {item.answer}</p>
+                    <p>{item.question}</p>
+                    <p>{item.answer}</p>
                 </div>
             ) : (       
                 <div>
@@ -24,7 +24,8 @@ const MainLayout = (props) => {
                         />
                     ) : (
                         <div>
-                            {item}
+                            <p>{item.text}</p>
+                            <p>{item.by}</p>
                         </div>
                     )}
                     

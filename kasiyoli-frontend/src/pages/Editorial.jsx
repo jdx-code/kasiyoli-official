@@ -1,4 +1,4 @@
-import introductionDB from '../introductionDB';
+import introductionDB from '../staticDB/introductionDB';
 import MainLayout from '../components/MainLayout';
 
 const Editorial = () => {
@@ -8,8 +8,8 @@ const Editorial = () => {
     const editorialContent = filteredContent.map(item => {
         return (
             <MainLayout             
-            content = {item.content}
-            img = {item.img}
+                content = {item.content}
+                img = {item.img}
             />
         )        
     })
