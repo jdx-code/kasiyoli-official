@@ -14,7 +14,7 @@ const Image = (props) => {
                                         <img src={item.file} className="card-img-top w-full h-72" />
                                     </a>
                                 ):(
-                                    <a href={item.image} data-fancybox="gallery" data-caption="Caption #2">
+                                    <a href={item.image} data-fancybox="gallery" data-caption={item.studentName}>
                                         <img src={item.image} className="card-img-top w-full h-72" />
                                     </a>
                                 )}

@@ -8,14 +8,14 @@ const MagazineCards = (props) => {
                     {props.data.map((item) => {
 
                         return(
-                        <a key={item._id} href='#'>
+                        <a key={item._id} href='/editorial'>
                             <div className="col">
                                 <div className="card w-72 h-100">
                                     <img src={item.coverImage} className="card-img-top w-full h-72"
                                         alt="Skyscrapers" />
                                     <div className="card-body">
                                         <h5 className="card-title">{item.volumeYear}</h5>
-                                        <p className="card-text">{item.volumeNum} Edition</p>
+                                        <p className="card-text">{item.volumeNum}</p>
                                         <p className="card-text">{item.volumeEditor}</p>
                                     </div>
                                     <div className="card-footer">
