@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
 import './App.css'
 import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
 import Editorial from './pages/Editorial'
 import Interview from './pages/Interview'
 import Welcome from './pages/Welcome'
@@ -20,14 +21,11 @@ function App() {
 
     return (
       <>
-<<<<<<< HEAD
         
-=======
-        <Navbar />
-
->>>>>>> b82b561e67df9f015b6743c259f486f86a7aecc2
         <Routes>
-            <Route path="/" element={<Home />} />            
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/editorial/:volumeID" element={<Editorial />} />
             <Route path="/welcome/:volumeID" element={<Welcome />} />
             <Route path="/interview" element={<Interview />} />
