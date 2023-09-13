@@ -99,7 +99,6 @@ module.exports = {
 
   getSubCategory: async (req, res) => {
     try{
-      const category = await Category.find()
       const subCategory = await SubCategory.find().populate('category')
       return res.json(subCategory)
     }catch(err){
@@ -181,7 +180,8 @@ module.exports = {
 
   getPost: async (req, res) => {
     try{
-      const post = await Post.find()
+      const post = await Post.find().populate('category')
+      
       return res.json(post)
     }catch(err){
       return res.status(500).json({
@@ -355,6 +355,8 @@ module.exports = {
         title: req.body.title,
         image: imageUrl,
         studentName: req.body.studentName,
+        volume: req.body.volume,
+        photoType: req.body.photoType,
         cloudinary_id,
       })
       console.log("Volume added")
