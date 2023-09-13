@@ -16,7 +16,6 @@ import Art from './pages/Art'
 import PostManager from './pages/Admin/PostManager'
 import PhotoManagement from './pages/Admin/PhotoManagement'
 
-
 function App() {
 
     return (
