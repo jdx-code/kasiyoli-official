@@ -20,8 +20,12 @@ function App() {
 
     return (
       <>
+<<<<<<< HEAD
+        
+=======
         <Navbar />
 
+>>>>>>> b82b561e67df9f015b6743c259f486f86a7aecc2
         <Routes>
             <Route path="/" element={<Home />} />            
             <Route path="/editorial/:volumeID" element={<Editorial />} />
