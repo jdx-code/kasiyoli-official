@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Sidebar from '../../components/Sidebar'
 
@@ -7,9 +7,25 @@ function PhotoManagement() {
     const [selectedFile, setSelectedFile] = useState(null)
     const [formData, setFormData] = useState({ 
             title: "",
-            studentName: ""
+            studentName: "",
+            volume: "",
+            photoType: ""
         }
     )
+
+    const [volume, setVolume] = useState([]); // Store volume here
+
+    useEffect(() => {
+        // Fetch categories from the server when the component mounts
+        axios.get('http://localhost:5000/admin/volume')
+        .then((res) => {
+            setVolume(res.data);
+        })
+        .catch((error) => {
+            console.error('Error fetching volume:', error);
+        });
+      }, []); // Empty dependency array to run the effect only once
+    
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0])
@@ -33,7 +49,9 @@ function PhotoManagement() {
     // Append other form data to the FormData object
     formDatas.append('title', formData.title);
     formDatas.append('studentName', formData.studentName);
-
+    formDatas.append('volume', formData.volume);
+    formDatas.append('photoType', formData.photoType);
+    
         axios.post('http://localhost:5000/admin/add-photo', formDatas, {
         headers: {
             'Content-Type': 'multipart/form-data',
@@ -57,7 +75,7 @@ function PhotoManagement() {
             
         <form onSubmit={handleSubmit}>
           <p>
-          <label>Caption/Description : </label>
+          <label>Title : </label>
           <input 
               type='text'
               placeholder='Title'
@@ -76,13 +94,38 @@ function PhotoManagement() {
           />
           </p>
           <p>
-          <label>Caption/Description : </label>
+          <label>Student Name : </label>
           <input 
               type='text'
               placeholder='Student Name'
               onChange={handleChange}
               name='studentName'
               value={formData.studentName}
+          />
+          </p>
+          <p>
+          <label htmlFor="volume">Volume:</label>
+          <select
+              onChange={handleChange}
+              name="volume"
+              value={formData.volume}
+          >
+              <option value="">Select a volume</option>
+              {volume.map((vol) => (
+                  <option key={vol._id} value={vol._id}>
+                  {vol.volumeNum}
+                  </option>
+              ))}
+          </select>
+          </p>
+          <p>
+          <label>Photo Type : </label>
+          <input 
+              type='text'
+              placeholder='Photo Type'
+              onChange={handleChange}
+              name='photoType'
+              value={formData.photoType}
           />
           </p>
           <button>Submit</button>
