@@ -1,9 +1,9 @@
-import introductionDB from '../staticDB/introductionDB';
+import interviewDB from '../staticDB/interviewDB';
 import MainLayout from '../components/MainLayout';
 
 const Interview = () => {
 
-    const filteredContent = introductionDB.filter(item => item.type == 'interview')    
+    const filteredContent = interviewDB.filter(item => item.type == 'interview')    
     
     const interviewContent = filteredContent.map(item => {
         return (

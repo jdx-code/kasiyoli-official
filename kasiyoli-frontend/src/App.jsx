@@ -24,9 +24,9 @@ function App() {
         <Navbar />
 
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/editorial" element={<Editorial />} />
-            <Route path="/welcome" element={<Welcome />} />
+            <Route path="/" element={<Home />} />            
+            <Route path="/editorial/:volumeID" element={<Editorial />} />
+            <Route path="/welcome/:volumeID" element={<Welcome />} />
             <Route path="/interview" element={<Interview />} />
             <Route path="/postCardContent" element={<PostCardContent />} />
             <Route path="/gallery" element={<Gallery />} />

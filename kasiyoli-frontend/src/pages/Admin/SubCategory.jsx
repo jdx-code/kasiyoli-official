@@ -90,16 +90,16 @@ const SubCategory = () => {
             <button onClick={getSubCategory}>Get SubCategory</button>
             <div>
                 {data.length > 0 ? (
-                        data.map((dataObj) => (
-                            <div key={dataObj._id}>
-                                <p>Category Name: {dataObj.category.categoryName}</p>
-                                <p>Sub Category Name: {dataObj.subCategory}</p>
-                                <p>Sub Category Description: {dataObj.subCategoryDesc}</p>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No data available.</p>
-                    )} 
+                    data.map((dataObj) => (
+                        <div key={dataObj._id}>
+                            <p>Category Name: {dataObj.category.categoryName}</p>
+                            <p>Sub Category Name: {dataObj.subCategory}</p>
+                            <p>Sub Category Description: {dataObj.subCategoryDesc}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>No data available.</p>
+                )} 
             </div>
 
             </div>

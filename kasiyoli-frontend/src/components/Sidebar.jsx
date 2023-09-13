@@ -3,23 +3,24 @@ import '../Style.css'
 const Sidebar = () => {
     return (
         <>
-            <div class="sidebar">
+            <div className="sidebar">
                 <a href="#home">Home</a>
                 <a href='/volume-manage'>Volume Manage</a>
                 <a href="/category">Category</a>
                 <a href='/sub-category'>Sub Category</a>
 
-                <div class="dropdown">
-                    <a href="" class="dropdown-toggle" data-bs-toggle="dropdown">
+                <div className="dropdown">
+                    <a href="" className="dropdown-toggle" data-bs-toggle="dropdown">
                         Dropdown button
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <ul className="dropdown-menu">
+                        <li><a className="dropdown-item" href="#">Action</a></li>
+                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                        <li><a className="dropdown-item" href="#">Something else here</a></li>
                     </ul>   
                 </div>
 
+                <a href='/post-manager'>Post</a>
                 <a href="/gallery-management">Gallery</a>
                 <a href='/photo-manage'>Photo</a>
                 <a href="#about">About</a>
