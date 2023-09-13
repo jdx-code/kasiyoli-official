@@ -1,9 +1,12 @@
-import introductionDB from '../staticDB/introductionDB';
+import interviewDB from '../staticDB/interviewDB';
 import MainLayout from '../components/MainLayout';
+import { useParams } from 'react-router-dom';
 
 const Editorial = () => {
 
-    const filteredContent = introductionDB.filter(item => item.type == 'editorial')    
+    const { volumeID } = useParams();
+
+    const filteredContent = interviewDB.filter(item => item.type == 'editorial').filter(item => item.volumeID == volumeID)   
     
     const editorialContent = filteredContent.map(item => {
         return (
@@ -16,7 +19,8 @@ const Editorial = () => {
 
     return (
         <>
-
+            <p>Volume ID: {volumeID}</p>
+            
             <section>
                 {editorialContent}
             </section>

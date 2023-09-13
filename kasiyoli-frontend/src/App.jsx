@@ -1,8 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
 import './App.css'
 import Home from './pages/Home'
-import About from './pages/About'
-import Contact from './pages/Contact'
 import Editorial from './pages/Editorial'
 import Interview from './pages/Interview'
 import Welcome from './pages/Welcome'
@@ -21,13 +20,12 @@ function App() {
 
     return (
       <>
-        {/* Routes */}
+        <Navbar />
+
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/editorial" element={<Editorial />} />
-            <Route path="/welcome" element={<Welcome />} />
+            <Route path="/" element={<Home />} />            
+            <Route path="/editorial/:volumeID" element={<Editorial />} />
+            <Route path="/welcome/:volumeID" element={<Welcome />} />
             <Route path="/interview" element={<Interview />} />
             <Route path="/postCardContent" element={<PostCardContent />} />
             <Route path="/gallery" element={<Gallery />} />

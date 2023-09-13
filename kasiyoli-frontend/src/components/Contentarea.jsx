@@ -3,21 +3,21 @@ import '../Style.css'
 const Contentarea = () => {
     return (
         <>
-            <div class="container">
-                <div class="row row-cols-lg-3 my-4">
+            <div className="container">
+                <div className="row row-cols-lg-3 my-4">
                     
-                    <div class="col">
-                        <div class="card">
-                            <div class="row">
+                    <div className="col">
+                        <div className="card">
+                            <div className="row">
                               
-                                <div class="col-lg-4">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Categories Listed</h5>
-                                        <p class="card-text">
+                                <div className="col-lg-4">
+                                    <div className="card-body">
+                                        <h5 className="card-title">Categories Listed</h5>
+                                        <p className="card-text">
                                             
                                         </p>
-                                        <p class="card-text">
-                                            <small class="text-muted">
+                                        <p className="card-text">
+                                            <small className="text-muted">
                                                 Last updated now
                                             </small>
                                         </p>
@@ -27,18 +27,18 @@ const Contentarea = () => {
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card">
-                            <div class="row">
+                    <div className="col">
+                        <div className="card">
+                            <div className="row">
                               
-                                <div class="col-lg-4">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Categories Listed</h5>
-                                        <p class="card-text">
+                                <div className="col-lg-4">
+                                    <div className="card-body">
+                                        <h5 className="card-title">Categories Listed</h5>
+                                        <p className="card-text">
                                             
                                         </p>
-                                        <p class="card-text">
-                                            <small class="text-muted">
+                                        <p className="card-text">
+                                            <small className="text-muted">
                                                 Last updated now
                                             </small>
                                         </p>
@@ -48,17 +48,17 @@ const Contentarea = () => {
                         </div>
                     </div>
                     
-                    <div class="col">
-                        <div class="card">
-                            <div class="row">
+                    <div className="col">
+                        <div className="card">
+                            <div className="row">
                                 
-                                <div class="col-lg-4">
-                                    <div class="card-body">
-                                        <h5 class="card-title">POSTS</h5>
-                                        <p class="card-text">
+                                <div className="col-lg-4">
+                                    <div className="card-body">
+                                        <h5 className="card-title">POSTS</h5>
+                                        <p className="card-text">
                                         </p>
-                                        <p class="card-text">
-                                            <small class="text-muted">
+                                        <p className="card-text">
+                                            <small className="text-muted">
                                                 Last updated now
                                             </small>
                                         </p>
@@ -68,17 +68,17 @@ const Contentarea = () => {
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card">
-                            <div class="row">
+                    <div className="col">
+                        <div className="card">
+                            <div className="row">
                                 
-                                <div class="col-lg-4">
-                                    <div class="card-body">
-                                        <h5 class="card-title">TRASH</h5>
-                                        <p class="card-text">
+                                <div className="col-lg-4">
+                                    <div className="card-body">
+                                        <h5 className="card-title">TRASH</h5>
+                                        <p className="card-text">
                                         </p>
-                                        <p class="card-text">
-                                            <small class="text-muted">
+                                        <p className="card-text">
+                                            <small className="text-muted">
                                                 Last updated now
                                             </small>
                                         </p>

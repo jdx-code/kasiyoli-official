@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-const Navbar = (props) => {
+const Menu = () => {
 
-    const [showMobileMenu, setShowMobileMenu] = useState(false);     
+    const [showMobileMenu, setShowMobileMenu] = useState(false); 
 
     return(
 
@@ -20,17 +21,45 @@ const Navbar = (props) => {
                     className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
                 >
                     Home
-                </NavLink>  
-                {props.links.map(({linkName, to}) => {
-                  return(
-                    <NavLink 
-                      to={to}
-                      className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                  >
-                      {linkName}
-                  </NavLink>
-                  )
-                })}    
+                </NavLink>           
+                <NavLink 
+                    to="/editorial/"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    সম্পাদনা সমিতি
+                </NavLink>
+                <NavLink 
+                    to="/welcome"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    শুভেচ্ছা বাণী
+                </NavLink>                      
+                <NavLink 
+                    to="/interview"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    অন্তৰংগ আলাপ
+                </NavLink>
+                <NavLink 
+                    to="/postCardContent"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    তথ্যকোষ
+                </NavLink>
+                <NavLink 
+                    to="/gallery"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    আলোক চিত্ৰ 
+                </NavLink>
+
+                <NavLink 
+                    to="/art"
+                    className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                    ছবি
+                </NavLink>
+                
             </div>
           </div>
           <button
@@ -52,10 +81,10 @@ const Navbar = (props) => {
           </button>
         </div>
         <div className="md:hidden">
-          {showMobileMenu && <Navbar />}
+          {showMobileMenu && <Menu />}
         </div>
       </nav>
     )
 }
 
-export default Navbar
+export default Menu

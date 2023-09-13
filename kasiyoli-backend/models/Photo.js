@@ -12,6 +12,13 @@ const PhotoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    volume : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Volume',
+    },
+    photoType: {
+        type: String,
+    },
     cloudinary_id: {
         type: String,
     },

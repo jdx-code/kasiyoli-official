@@ -1,38 +1,7 @@
-import Navbar from './Navbar'
-
 const Image = (props) => {
 
-    const links = [
-        {
-            "linkName" : "সম্পাদনা সমিতি",
-            "to" : "/welcome",
-        },
-        {
-            "linkName" : "শুভেচ্ছা বাণী",
-            "to" : "/editorial",
-        },
-        {
-            "linkName" : "অন্তৰংগ আলাপ",
-            "to" : "/interview",
-        },
-        {
-            "linkName" : "তথ্যকোষ",
-            "to" : "/postCardContent",
-        },
-        {
-            "linkName" : "ছবি",
-            "to" : "/gallery",
-        },
-        {
-            "linkName" : "আলোক চিত্ৰ",
-            "to" : "/art",
-        },
-    ]
-
     return (
-        <>  
-            <Navbar links={links} />
-
+        <>
             <div className="container">    
      
                 <div className="row row-cols-1 row-cols-md-6 g-5 flex justify-center my-12">                

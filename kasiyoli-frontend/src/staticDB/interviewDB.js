@@ -9,8 +9,23 @@ export default [
             },
         ],
         "img" : "/img/credit_img.jpg",
-        "type": "editorial"
-    },   
+        "type": "editorial",
+        "volumeID": "64feb45c44ca262782cd917f"
+    }, 
+    {
+        "id" : 1,
+        "content" : [            
+            {
+                "id": 1,
+                "question": "editorial page of magazine 2",
+                "answer": " ধন্যবাদ, ড°মৌচুমী বৰদলৈ হাজৰিকা, উপাধ্যক্ষা" 
+            },
+        ],
+        "img" : "/img/credit_img.jpg",
+        "type": "editorial",
+        "volumeID": "64feb73c44ca262782cd9191"
+    },  
+    
     {
         "id" : 2,
         "content" : [
@@ -41,6 +56,7 @@ export default [
             },
         ],
         "img" : "/img/interview-2.jpg",
-        "type": "interview"
-    },   
+        "type": "interview",
+        "volumeID": "64feb45c44ca262782cd917f"        
+    },        
 ]
