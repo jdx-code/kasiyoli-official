@@ -9,11 +9,11 @@ const Home = () => {
 
     const links = [
         {
-            "linkName" : "About Us",
+            "linkName" : "About",
             "to" : "/about",
         },
         {
-            "linkName" : "Contact Us",
+            "linkName" : "Contact",
             "to" : "/contact",
         },        
     ]
