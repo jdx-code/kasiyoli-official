@@ -7,7 +7,16 @@ const Home = () => {
 
     const [data, setData] = useState([])
 
-    const links = ["About", "Contact"]
+    const links = [
+        {
+            "linkName" : "About Us",
+            "to" : "/about",
+        },
+        {
+            "linkName" : "Contact Us",
+            "to" : "/contact",
+        },        
+    ]
 
     useEffect(() => {
         // Fetch categories from the server when the component mounts
