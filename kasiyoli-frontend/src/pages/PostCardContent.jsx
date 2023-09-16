@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 const PostCardContent = () => {
     
     const [post, setPost] = useState([]); // Store categories here
-
+    
     useEffect(() => {
         // Fetch categories from the server when the component mounts
         Axios.get('http://localhost:5000/admin/post')
@@ -20,6 +20,7 @@ const PostCardContent = () => {
         });
     }, []); // Empty dependency array to run the effect only once
 
+    const { volumeID } = useParams(); 
 
     const postCardDetails = post.map(item => {
         return (
@@ -30,37 +31,30 @@ const PostCardContent = () => {
         )
     })
 
-    const [volumeID, setVolumeID] = useState(post.volume)
-    
-    useEffect(()=> {
-        const { param } = useParams(); 
-        setVolumeID(param)
-    }, [])
+    return (
+        <>
+            <Navbar links="magazineLinks" volumeID={volumeID} />
 
- return (
-    <>
-        <Navbar links="magazineLinks" volumeID={volumeID} />
-        <div className="container">
-            <div className="row">
-                <div className="col-md-8">
-                    <section>
-                        {postCardDetails}                        
-                    </section>      
-                </div>
-                <div className="col-md-4">
-                    
-                    <SidebarCard 
-                        title="ইয়াত বিচাৰক"
-                    />                    
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-8">
+                        <section>
+                            {postCardDetails}                        
+                        </section>      
+                    </div>
+                    <div className="col-md-4">
+                        
+                        <SidebarCard 
+                            title="ইয়াত বিচাৰক"
+                        />                    
 
-                    <SidebarCard post={post}/>
-                    
+                        <SidebarCard post={post}/>
+                        
+                    </div>
                 </div>
             </div>
-        </div>
-
-        
-    </>
+            
+        </>
  )
 }
 
