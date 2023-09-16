@@ -4,6 +4,46 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = (props) => {
 
+    const volumeID = props.volumeID
+
+    const homeLinks = [
+      {
+          "linkName" : "About",
+          "to" : "/about",
+      },
+      {
+          "linkName" : "Contact",
+          "to" : "/contact",
+      },        
+  ]
+
+    const magazinelinks = [
+      {
+          "linkName" : "সম্পাদনা সমিতি",
+          "to" : `/welcome/${volumeID}`
+      },
+      {
+          "linkName" : "শুভেচ্ছা বাণী",
+          "to" : `/editorial/${volumeID}`,
+      },
+      {
+          "linkName" : "অন্তৰংগ আলাপ",
+          "to" : `/interview/${volumeID}`,
+      },
+      {
+          "linkName" : "তথ্যকোষ",
+          "to" : `/postCardContent/${volumeID}`,
+      },
+      {
+          "linkName" : "ছবি",
+          "to" : `/gallery/${volumeID}`,
+      },
+      {
+          "linkName" : "আলোক চিত্ৰ",
+          "to" : `/art/${volumeID}`,
+      },
+  ]
+
     const [showMobileMenu, setShowMobileMenu] = useState(false);     
 
     return(
@@ -21,16 +61,30 @@ const Navbar = (props) => {
                 >
                     Home
                 </NavLink>  
-                {props.links.map(({linkName, to}) => {
-                  return(
-                    <NavLink 
-                      to={to}
-                      className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                  >
-                      {linkName}
-                  </NavLink>
-                  )
-                })}    
+                {props.links === "homeLinks" ? (
+                     homeLinks.map(({linkName, to}) => {
+                      return(
+                        <NavLink 
+                          to={to}
+                          className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                      >
+                          {linkName}
+                      </NavLink>
+                      )
+                    })  
+                ) : (
+                  magazinelinks.map(({linkName, to}) => {
+                    return(
+                      <NavLink 
+                        to={to}
+                        className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                    >
+                        {linkName}
+                    </NavLink>
+                    )
+                  })
+                )}
+                
             </div>
           </div>
           <button

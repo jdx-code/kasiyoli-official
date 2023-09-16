@@ -5,18 +5,7 @@ import MagazineCards from '../components/MagazineCard'
 
 const Home = () => {
 
-    const [data, setData] = useState([])
-
-    const links = [
-        {
-            "linkName" : "About",
-            "to" : "/about",
-        },
-        {
-            "linkName" : "Contact",
-            "to" : "/contact",
-        },        
-    ]
+    const [data, setData] = useState([])    
 
     useEffect(() => {
         // Fetch categories from the server when the component mounts
@@ -31,7 +20,7 @@ const Home = () => {
 
     return (
         <>
-            <Navbar links={links} />            
+            <Navbar links="homeLinks" />            
             <MagazineCards data={data} />
 
         </>

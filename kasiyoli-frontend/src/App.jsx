@@ -28,8 +28,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/editorial/:volumeID" element={<Editorial />} />
             <Route path="/welcome/:volumeID" element={<Welcome />} />
-            <Route path="/interview" element={<Interview />} />
-            <Route path="/postCardContent" element={<PostCardContent />} />
+            <Route path="/interview/:volumeID" element={<Interview />} />
+            <Route path="/postCardContent/:volumeID" element={<PostCardContent />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path='/art' element={<Art />} />
 

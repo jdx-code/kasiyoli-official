@@ -9,7 +9,7 @@ const MagazineCards = (props) => {
                 <div className="row row-cols-1 row-cols-md-4 g-5 flex justify-center my-24">
 
                 {props.data.map((item) => (
-                <Link key={item._id} to={`/editorial/${item._id}`}>
+                <Link key={item._id} to={`/welcome/${item._id}`}>
                     <div className="col">
                         <div className="card w-72 h-100">
                             <img src={item.coverImage} className="card-img-top w-full h-72"

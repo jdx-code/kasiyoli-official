@@ -1,21 +1,65 @@
-import postCardDB from "../postCardDB"
-import MainLayout from "../components/MainLayout"
+import React, { useState, useEffect } from 'react'
+import Axios from 'axios'
+import PostCard from '../components/PostCard'
+import SidebarCard from '../components/SidebarCard'
+import Navbar from '../components/Navbar'
+import { useParams } from 'react-router-dom';
 
 const PostCardContent = () => {
+    
+    const [post, setPost] = useState([]); // Store categories here
 
-    const postCardDetails = postCardDB.map(item => {
+    useEffect(() => {
+        // Fetch categories from the server when the component mounts
+        Axios.get('http://localhost:5000/admin/post')
+        .then((res) => {            
+            setPost(res.data);
+        })
+        .catch((error) => {
+            console.error('Error fetching post:', error);
+        });
+    }, []); // Empty dependency array to run the effect only once
+
+
+    const postCardDetails = post.map(item => {
         return (
-            <MainLayout                                 
-                content = {item.content}
+            <PostCard                                 
+                title = {item.postTitle}
+                category = {item.category.categoryName}
             />
         )
     })
 
+    const [volumeID, setVolumeID] = useState(post.volume)
+    
+    useEffect(()=> {
+        const { param } = useParams(); 
+        setVolumeID(param)
+    }, [])
+
  return (
     <>
-        <section>
-            {postCardDetails}
-        </section>
+        <Navbar links="magazineLinks" volumeID={volumeID} />
+        <div className="container">
+            <div className="row">
+                <div className="col-md-8">
+                    <section>
+                        {postCardDetails}                        
+                    </section>      
+                </div>
+                <div className="col-md-4">
+                    
+                    <SidebarCard 
+                        title="ইয়াত বিচাৰক"
+                    />                    
+
+                    <SidebarCard post={post}/>
+                    
+                </div>
+            </div>
+        </div>
+
+        
     </>
  )
 }

@@ -1,9 +1,15 @@
 import welcomeDB from "../staticDB/welcomeDB"
 import MainLayout from "../components/MainLayout"
+import Navbar from "../components/Navbar"
+import { useParams } from 'react-router-dom';
 
 const Welcome = () => {
 
-    const welcomeContentNew = welcomeDB.map(item => {
+  const { volumeID } = useParams(); 
+
+    const filteredContent = welcomeDB.filter(item => item.volumeID == volumeID)
+
+    const welcomeContentNew = filteredContent.map(item => {
       return(
         <MainLayout 
           title = {item.title}
@@ -14,6 +20,7 @@ const Welcome = () => {
 
     return (
         <>
+          <Navbar links="magazineLinks" volumeID={volumeID}/>
           <section>
             {welcomeContentNew}
           </section>
