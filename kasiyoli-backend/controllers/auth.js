@@ -30,10 +30,17 @@ module.exports = {
   
   addCategory: async (req, res) => {
     try{
+      const creationDate = new Date()
+      const updationDate = new Date()
+      const isActive = true
       await Category.create({
         categoryName: req.body.categoryName,
-        categoryDesc: req.body.categoryDesc,        
+        categoryDesc: req.body.categoryDesc,   
+        creationDate, 
+        updationDate,
+        isActive
       })
+      console.log("category added")
       return res.status(200).json({
         message: "Successfully created",
         success: true
@@ -108,10 +115,16 @@ module.exports = {
 
   addSubCategory: async (req, res) => {
     try{
+      const creationDate = new Date()
+      const updationDate = new Date()
+      const isActive = true
       await SubCategory.create({
         category: req.body.categoryName,
         subCategory: req.body.subCategory,
-        subCategoryDesc: req.body.subCategoryDesc
+        subCategoryDesc: req.body.subCategoryDesc,
+        creationDate, 
+        updationDate,
+        isActive
       })
       return res.status(200).json({
         message: "Successfully created",
