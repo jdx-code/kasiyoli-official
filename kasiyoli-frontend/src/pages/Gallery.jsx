@@ -1,6 +1,8 @@
 import Image from '../components/Image'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 
 const Gallery = () => {
 
@@ -17,9 +19,11 @@ const Gallery = () => {
         });
     }, []); // Empty dependency array to run the effect only once    
     
-
+    const { volumeID } = useParams()
     return (
         <>
+            <Navbar links="magazineLinks" volumeID={volumeID} />
+
             <Image data={data} />
         </>
     )

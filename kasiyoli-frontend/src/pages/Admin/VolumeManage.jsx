@@ -1,29 +1,27 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import Sidebar from '../../components/Sidebar'
+import React, { useState } from 'react';
+import axios from 'axios';
+import Sidebar from '../../components/Sidebar';
 
 const VolumeManage = () => {
-
-  const [selectedFile, setSelectedFile] = useState(null)
-  const [formData, setFormData] = useState({ 
-      volumeYear: "",
-      volumeNum: "",
-      volumeEditor: ""
-    }
-  )
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [formData, setFormData] = useState({
+    volumeYear: '',
+    volumeNum: '',
+    volumeEditor: '',
+  });
 
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0])
-  }
+    setSelectedFile(event.target.files[0]);
+  };
 
   const handleChange = (event) => {
-    setFormData(prevFormData => {
-        return{
-            ...prevFormData,
-            [event.target.name]: event.target.value
-        }
-    })
-  }
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [event.target.name]: event.target.value,
+      };
+    });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,7 +34,8 @@ const VolumeManage = () => {
     formDatas.append('volumeNum', formData.volumeNum);
     formDatas.append('volumeEditor', formData.volumeEditor);
 
-      axios.post('http://localhost:5000/admin/add-volume', formDatas, {
+    axios
+      .post('http://localhost:5000/admin/add-volume', formDatas, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -46,62 +45,76 @@ const VolumeManage = () => {
       })
       .catch((error) => {
         console.error(error);
-      })
-  }
+      });
+  };
+
+  const myStyle = {
+    margin: '0 auto',
+    width: '50%',
+  };
 
   return (
-    <div class="row">
-        <div class="col-sm-2">
-            <Sidebar />
-        </div>
-        <div class="col-md-10">
-          
-        <form onSubmit={handleSubmit}> 
-          <p>
-            <label>Volume Year</label>
-            <input 
-              type='text'
-              placeholder='Volume Year'
-              onChange={handleChange}
-              name="volumeYear"
-              value={formData.volumeYear}
-            />
-          </p>
-          <p>
-            <label>Volume Number</label>
-            <input 
-                type='text'
-                placeholder='Volume Number'
+    <div className="row">
+      <div className="col-sm-2">
+        <Sidebar />
+      </div>
+      <div className="container my-4">
+        <div className="col-md-10">
+          <form onSubmit={handleSubmit} style={myStyle}>
+            <div className="form-group">
+              <label htmlFor="volumeYear">Volume Year:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="volumeYear"
+                placeholder="Volume Year"
+                onChange={handleChange}
+                name="volumeYear"
+                value={formData.volumeYear}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="volumeNum">Volume Number:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="volumeNum"
+                placeholder="Volume Number"
                 onChange={handleChange}
                 name="volumeNum"
                 value={formData.volumeNum}
-            />
-          </p>
-          <p>
-            <label>Volume Editor</label>
-            <input 
-              type='text'
-              placeholder='Volume Editor'
-              onChange={handleChange}
-              name="volumeEditor"
-              value={formData.volumeEditor}
-            />
-          </p>
-          <p>
-            <label>Cover Image</label>
-            <input 
-              type='file'
-              placeholder='Select Image'
-              onChange={handleFileChange}
-              name='coverImage'
-            />
-          </p>
-          <button type='submit'>Submit</button>
-        </form>
-
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="volumeEditor">Volume Editor:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="volumeEditor"
+                placeholder="Volume Editor"
+                onChange={handleChange}
+                name="volumeEditor"
+                value={formData.volumeEditor}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="coverImage">Cover Image:</label>
+              <input
+                type="file"
+                className="form-control-file"
+                id="coverImage"
+                onChange={handleFileChange}
+                name="coverImage"
+              />
+            </div>
+            <button className="btn btn-primary">
+              Submit
+            </button>
+          </form>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default VolumeManage
+export default VolumeManage;

@@ -1,30 +1,30 @@
-import interviewDB from '../staticDB/interviewDB';
-import MainLayout from '../components/MainLayout';
+import welcomeDB from "../staticDB/welcomeDB"
+import MainLayout from "../components/MainLayout"
+import Navbar from "../components/Navbar"
 import { useParams } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 
-const Editorial = () => {    
+const Editorial = () => {
 
-    const { volumeID } = useParams();
+  const { volumeID } = useParams(); 
 
-    const filteredContent = interviewDB.filter(item => item.type == 'editorial').filter(item => item.volumeID == volumeID)   
-    
-    const editorialContent = filteredContent.map(item => {
-        return (
-            <MainLayout             
-                content = {item.content}
-                img = {item.img}
-            />
-        )        
+    const filteredContent = welcomeDB.filter(item => item.volumeID == volumeID)
+
+    const welcomeContentNew = filteredContent.map(item => {
+      return(
+        <MainLayout 
+          title = {item.title}
+          content = {item.content}
+        />
+      )
     })
 
     return (
         <>
-            <Navbar links="magazineLinks" volumeID={volumeID} />
-            <section>
-                {editorialContent}
-            </section>
-
+          <Navbar links="magazineLinks" volumeID={volumeID}/>
+          <section>
+            {welcomeContentNew}
+          </section>
+            
         </>
     )
 }

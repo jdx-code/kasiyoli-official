@@ -30,8 +30,8 @@ function App() {
             <Route path="/welcome/:volumeID" element={<Welcome />} />
             <Route path="/interview/:volumeID" element={<Interview />} />
             <Route path="/postCardContent/:volumeID" element={<PostCardContent />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path='/art' element={<Art />} />
+            <Route path="/gallery/:volumeID" element={<Gallery />} />
+            <Route path='/art/:volumeID' element={<Art />} />
 
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/category" element={<Category />} />

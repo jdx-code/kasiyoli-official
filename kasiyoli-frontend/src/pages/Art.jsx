@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Image from '../components/Image'
+import { useParams } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 function Art() {
 
@@ -16,10 +18,13 @@ function Art() {
           console.error('Error fetching Photo:', error);
       });
   }, []); // Empty dependency array to run the effect only once    
+
+  const { volumeID } = useParams()
   
   return (
     <div>
-         <Image data={data} />
+        <Navbar links="magazineLinks" volumeID={volumeID} />
+        <Image data={data} />
     </div>
   )
 }
