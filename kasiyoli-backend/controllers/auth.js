@@ -191,11 +191,37 @@ module.exports = {
     }
   },
 
-  getPost: async (req, res) => {
+  getPosts: async (req, res) => {
     try{
       const post = await Post.find().populate('category')
       
       return res.json(post)
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Found",
+        success:false
+      })
+    }
+  },
+
+  getPost: async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 4; // Set your desired limit per page
+    const skip = (page - 1) * limit;
+
+    try{
+      // const post = await Post.find().populate('category')
+      const totalCount = await Post.countDocuments(); // Get the total count of posts
+      const posts = await Post.find()
+          .skip(skip)
+          .limit(limit)
+          .populate('category');
+          
+      return res.json({
+        posts,
+        totalPages: Math.ceil(totalCount / limit),
+        currentPage: page,
+      });
     }catch(err){
       return res.status(500).json({
         message:"Not Found",

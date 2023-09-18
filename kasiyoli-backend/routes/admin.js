@@ -19,6 +19,7 @@ router.put('/edit-subcategory/:id', authController.editSubCategory)
 router.delete('/delete-subcategory/:id', authController.deleteSubCategory)
 
 router.get('/post', authController.getPost)
+router.get('/get-post', authController.getPosts)
 router.post('/add-post', authController.addPost)
 router.get('/get-post/:id', authController.getPostById)
 router.put('/edit-post/:id', authController.editPost)
