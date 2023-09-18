@@ -16,12 +16,12 @@ import VolumeManage from './pages/Admin/VolumeManage'
 import Art from './pages/Art'
 import PostManager from './pages/Admin/PostManager'
 import PhotoManagement from './pages/Admin/PhotoManagement'
+import ReadMore from './pages/ReadMore'
 
 function App() {
 
     return (
       <>
-        
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -40,6 +40,10 @@ function App() {
             <Route path='/photo-manage' element={<PhotoManagement />}/>
             <Route path='/post-manager' element={<PostManager /> } />
             <Route path='/volume-manage' element={<VolumeManage />} />
+
+            {/* Read More Route */}
+            <Route path='/content/:postID' element={<ReadMore />} />
+
         </Routes>
       </>
     )

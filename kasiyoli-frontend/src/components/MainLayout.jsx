@@ -9,7 +9,7 @@ const MainLayout = (props) => {
 
     useEffect(() => {
         // Fetch categories from the server when the component mounts
-        Axios.get('http://localhost:5000/admin/post')
+        Axios.get('http://localhost:5000/admin/get-post')
         .then((res) => {            
             setPost(res.data);
         })

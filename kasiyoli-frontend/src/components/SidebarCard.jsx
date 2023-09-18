@@ -1,5 +1,7 @@
 const SidebarCard = (props) => {    
 
+    console.log(props)
+    
     return(
         <>
             <div className="container">
@@ -31,9 +33,6 @@ const SidebarCard = (props) => {
                                         )}
                                     </p>
                                     
-                                    {/* <a href="#!" className="white-text d-flex justify-content-end">
-                                    <h5>Read more <i className="fas fa-angle-double-right"></i></h5>
-                                    </a> */}
                                 </div>
                             </div>  
                         

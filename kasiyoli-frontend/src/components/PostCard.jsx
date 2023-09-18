@@ -1,4 +1,10 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 const PostCard = (props) => {
+
+    console.log(props)
+
     return (
         <>
             <div className="container">
@@ -9,7 +15,10 @@ const PostCard = (props) => {
                                 <h4 className="card-title">{props.title ? props.title : 'no props received'}</h4>
                                 <hr />
                                 <p className="card-text">{props.category}</p>
-                                <button className="btn btn-indigo btn-rounded btn-md">Read more</button>
+                                <button className="btn btn-indigo btn-rounded btn-md">
+                                    <Link to={`/content/${props.id}`}>
+                                    Read more</Link>
+                                </button>
                             </div>
                         </div>
                     </div>
