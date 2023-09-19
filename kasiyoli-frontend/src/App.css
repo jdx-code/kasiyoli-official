@@ -1,3 +1,38 @@
 nav{
     background: #000;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination button.active {
+    background-color: #0056b3;
+  }
+  
+  .pagination button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Optional: Style the Previous and Next buttons */
+  .pagination .prev-next {
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
