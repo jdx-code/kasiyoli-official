@@ -33,4 +33,6 @@ router.post('/add-volume', upload.single('coverImage'), authController.addVolume
 router.get('/photo', authController.getPhoto)
 router.post('/add-photo', upload.single('image'), authController.addPhoto)
 
+router.post('/upload-image', upload.single('file'), authController.uploadImage)
+
 module.exports = router

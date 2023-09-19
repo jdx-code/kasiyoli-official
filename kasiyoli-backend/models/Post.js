@@ -5,6 +5,9 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    imageUrl: { // Include a field for storing the image URL
+        type: String,
+    },
     category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',       
@@ -16,10 +19,12 @@ const PostSchema = new mongoose.Schema({
     volume: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Volume',
-    },
+    },    
     postContent: {
-        type: String,
+        type: {},
         required: true,
+        min: 5,
+        max: 2000000
     },
     creationDate: {
         type: Date,

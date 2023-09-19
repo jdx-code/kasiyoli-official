@@ -204,29 +204,58 @@ module.exports = {
     }
   },
 
-  addPost: async (req, res) => {
-    try{
-      await Post.create({
-        postTitle: req.body.postTitle,
-        category: req.body.category,
-        subCategory: req.body.subCategory,
-        volume: req.body.volume,
-        postContent: req.body.postContent,
-      })
+  // addPost: async (req, res) => {
+  //   try{
+  //     await Post.create({
+  //       postTitle: req.body.postTitle,
+  //       category: req.body.category,
+  //       subCategory: req.body.subCategory,
+  //       volume: req.body.volume,
+  //       postContent: req.body.postContent,
+  //     })
 
-      console.log('post added')
+  //     console.log('post added')
+  //     return res.status(200).json({
+  //       message: "Successfully created",
+  //       success: true
+  //     })
+  //   }catch(err){
+  //     return res.status(500).json({
+  //       message: "Not created",
+  //       success: false
+  //     })
+  //   }
+  // },
+
+  addPost: async (req, res) => {
+    try {
+      // Extract text fields from the form data
+      const { title, category, subCategory, volume, content } = req.body;      
+  
+      // Create a new Post document
+      const newPost = await Post.create({
+        postTitle : title,
+        category,
+        subCategory,
+        volume,
+        postContent : content,        
+      });
+  
+      console.log('post added');
       return res.status(200).json({
-        message: "Successfully created",
-        success: true
-      })
-    }catch(err){
+        message: 'Successfully created',
+        success: true,
+        postData: newPost, // Optionally, return the created post data
+      });
+    } catch (err) {
+      console.error('Error creating post:', err);
       return res.status(500).json({
-        message: "Not created",
-        success: false
-      })
+        message: 'Not created',
+        success: false,
+      });
     }
   },
-
+  
   getPostById: async (req, res) => {
     try{
       const post = await Post.findById({_id: req.params.id})
@@ -373,6 +402,25 @@ module.exports = {
         cloudinary_id,
       })
       console.log("Volume added")
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Added",
+        success:false
+      })
+    }
+  },
+
+  uploadImage: async (req, res) => {
+    try{
+      // Upload the file to Cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: "kasiyoli/wysiwyg"
+      })      
+     
+      const imageUrl = result.secure_url;
+      
+      res.json({ imageUrl })
+      
     }catch(err){
       return res.status(500).json({
         message:"Not Added",
