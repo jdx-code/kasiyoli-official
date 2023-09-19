@@ -229,30 +229,7 @@ module.exports = {
       })
     }
   },
-
-  addPost: async (req, res) => {
-    try{
-      await Post.create({
-        postTitle: req.body.postTitle,
-        category: req.body.category,
-        subCategory: req.body.subCategory,
-        volume: req.body.volume,
-        postContent: req.body.postContent,
-      })
-
-  //     console.log('post added')
-  //     return res.status(200).json({
-  //       message: "Successfully created",
-  //       success: true
-  //     })
-  //   }catch(err){
-  //     return res.status(500).json({
-  //       message: "Not created",
-  //       success: false
-  //     })
-  //   }
-  // },
-
+  
   addPost: async (req, res) => {
     try {
       // Extract text fields from the form data
