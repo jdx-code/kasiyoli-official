@@ -35,13 +35,13 @@ const Navbar = (props) => {
           "to" : `/postCardContent/${volumeID}`,
       },
       {
-          "linkName" : "ছবি",
-          "to" : `/gallery/${volumeID}`,
+        "linkName" : "আলোক চিত্ৰ",
+        "to" : `/art/${volumeID}`,
       },
       {
-          "linkName" : "আলোক চিত্ৰ",
-          "to" : `/art/${volumeID}`,
-      },
+          "linkName" : "ছবি",
+          "to" : `/gallery/${volumeID}`,
+      },      
   ]
 
     const [showMobileMenu, setShowMobileMenu] = useState(false);     
