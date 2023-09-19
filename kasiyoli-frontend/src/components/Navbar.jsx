@@ -35,11 +35,11 @@ const Navbar = (props) => {
           "to" : `/postCardContent/${volumeID}`,
       },
       {
-        "linkName" : "আলোক চিত্ৰ",
+        "linkName" : "ছবি",
         "to" : `/art/${volumeID}`,
       },
       {
-          "linkName" : "ছবি",
+          "linkName" : "আলোক চিত্ৰ",
           "to" : `/gallery/${volumeID}`,
       },      
   ]
