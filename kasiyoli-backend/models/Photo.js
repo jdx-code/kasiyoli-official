@@ -10,7 +10,6 @@ const PhotoSchema = new mongoose.Schema({
     },
     studentName: {
         type: String,
-        required: true,
     },
     volume : {
         type: mongoose.Schema.Types.ObjectId,

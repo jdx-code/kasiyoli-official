@@ -333,6 +333,7 @@ module.exports = {
       await Gallery.create({
           file: imageUrl,
           description: req.body.desc,
+          volume: req.body.volume,
           cloudinary_id,
       })
       console.log('file added')

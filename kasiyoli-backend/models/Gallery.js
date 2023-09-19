@@ -9,6 +9,10 @@ const GallerySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    volume : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Volume',
+    },
     cloudinary_id: {
         type: String,
     },
