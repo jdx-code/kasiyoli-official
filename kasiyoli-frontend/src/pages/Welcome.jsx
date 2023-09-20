@@ -15,7 +15,7 @@ const Welcome = () => {
                 content = {item.content}
                 img = {item.img}
             />
-        )        
+        )         
     })
 
     return (

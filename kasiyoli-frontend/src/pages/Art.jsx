@@ -20,11 +20,13 @@ const Art = () => {
     }, []); // Empty dependency array to run the effect only once    
     
     const { volumeID } = useParams()
+    const filterdData = data.filter(item => item.volume == volumeID)
+
     return (
         <>
             <Navbar links="magazineLinks" volumeID={volumeID} />
 
-            <Image data={data} />
+            <Image data={filterdData} />
         </>
     )
 }

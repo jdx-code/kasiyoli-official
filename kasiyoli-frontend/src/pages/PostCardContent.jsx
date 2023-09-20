@@ -14,22 +14,24 @@ const PostCardContent = () => {
   const [loading, setLoading] = useState(false);
 
   const { volumeID } = useParams();
-
-  useEffect(() => {
-    // Fetch posts from the server based on the current page
-    setLoading(true);
-    Axios.get(`http://localhost:5000/admin/post?page=${currentPage}`)
-      .then((res) => {
-        setPost(res.data.posts);    
-        setTotalPages(res.data.totalPages);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching post:', error);
-        setLoading(false);
-      });
-  }, [currentPage]);
   
+  useEffect(() => {
+  // Fetch posts from the server based on the current page
+  setLoading(true);
+  Axios.get(`http://localhost:5000/admin/post/${volumeID}?page=${currentPage}`)
+    .then((res) => {
+      setPost(res.data.posts);
+      setTotalPages(res.data.totalPages);
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.error('Error fetching post:', error);
+      setLoading(false);
+    });
+}, [currentPage]);
+
+
+
   useEffect(() => {
     // Fetch categories from the server when the component mounts
     Axios.get('http://localhost:5000/admin/get-post')
@@ -39,11 +41,14 @@ const PostCardContent = () => {
     .catch((error) => {
         console.error('Error fetching post:', error);
     });
-}, []); // Empty dependency array to run the effect only once
+  }, []); // Empty dependency array to run the effect only once
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+
+  // const filterdDetails = post.filter(item => item.volume == volumeID)
+  const filterdData = allPost.filter(item => item.volume == volumeID)
 
   const postCardDetails = post.map((item) => (
     <PostCard
@@ -77,7 +82,7 @@ const PostCardContent = () => {
           </div>
           <div className="col-md-4">
             <SidebarCard title="ইয়াত বিচাৰক" />
-            <SidebarCard post={allPost} />
+            <SidebarCard post={filterdData} />
           </div>
         </div>
       </div>
