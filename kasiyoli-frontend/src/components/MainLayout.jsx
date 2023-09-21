@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import SidebarCard from "./SidebarCard"
 import Navbar from './Navbar'
+import { useParams } from 'react-router-dom';
 
 const MainLayout = (props) => {
+
+    const { volumeID } = useParams()
     
     const [post, setPost] = useState([]); // Store categories here
 
     useEffect(() => {
         // Fetch categories from the server when the component mounts
-        Axios.get('http://localhost:5000/admin/get-post')
+        Axios.get(`http://localhost:5000/admin/get-post/${volumeID}`)
         .then((res) => {            
             setPost(res.data);
         })

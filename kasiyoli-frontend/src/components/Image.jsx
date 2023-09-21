@@ -2,16 +2,24 @@ import Navbar from './Navbar'
 
 const Image = (props) => {
 
+    let title;
     
     return (
         <>  
           
             <div className="container">    
-     
+                
+                {props.data.forEach(item => {                    
+                        title = item.title                    
+                })}
+
+                <h1 className='text-center text-4xl'>{title}</h1>
                 <div className="row row-cols-1 row-cols-md-6 g-5 flex justify-center my-12">                
+                    
                     {props.data.map((item) => {
                         return(
-                            <div className="col border-4 rounded-lg border-blue-400 mx-4">                                                                
+                            
+                            <div className="col border-4 rounded-lg border-blue-400 mx-4">                                                                                            
                             <div className="card">
                                 {item.file ? (
                                     <a href={item.file} data-fancybox="gallery" data-caption="Caption #2">

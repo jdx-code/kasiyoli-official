@@ -34,7 +34,7 @@ const PostCardContent = () => {
 
   useEffect(() => {
     // Fetch categories from the server when the component mounts
-    Axios.get('http://localhost:5000/admin/get-post')
+    Axios.get(`http://localhost:5000/admin/get-post/${volumeID}`)
     .then((res) => {            
         setAllPost(res.data);
     })

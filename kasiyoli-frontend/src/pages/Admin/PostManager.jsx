@@ -18,16 +18,19 @@ const modules = {
     ["clean"],
   ],
 };
-const PostManager = () => {
-  // state
-  const [state, setState] = useState({
-    title: "",
-    category: "okCat",
-    subCategory: "okSubCat",
-    volume: "okVol",
-  });
-  const [content, setContent] = useState("");
 
+const PostManager = () => {
+
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const [formData, setFormData] = useState({
+    title: "",
+    category: "",
+    subCategory: "",
+    volume: "",
+    content: "",
+  });
+  
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [volumes, setVolumes] = useState([]);
@@ -65,43 +68,59 @@ const PostManager = () => {
       });
   }, []);
 
-  // rich text editor handle change
-  const handleContent = (event) => {
-    console.log(event);
-    setContent(event);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files);
   };
 
-  // destructure values from state
-  const { title, category, subCategory, volume } = state;
+  const handleChange = (event) => {
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [event.target.name]: event.target.value,
+      };
+    });
+  };
 
-  // onchange event handler
-  const handleChange = (name) => (event) => {
-    // console.log('name', name, 'event', event.target.value);
-    setState({ ...state, [name]: event.target.value });
+  const handleQuillChange = (value) => {
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        content: value, // Update the "content" field in the form data
+      };
+    });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.table({ title, content, user });
-    axios
-      .post(
-        `http://localhost:5000/admin/add-post`,
-        { title, category, subCategory, volume, content },        
-      )
+
+    const formDatas = new FormData();
+
+    formDatas.append('title', formData.title);
+    formDatas.append('category', formData.category);
+    formDatas.append('subCategory', formData.subCategory);
+    formDatas.append('volume', formData.volume);
+    formDatas.append('content', formData.content);
+    // Append all selected files
+    for (let i = 0; i < selectedFile.length; i++) {
+      formDatas.append('images', selectedFile[i]);
+    }
+
+
+    axios.post('http://localhost:5000/admin/add-post', formDatas, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
       .then((response) => {
-        console.log(response);
-        // empty state
-        setState({ ...state, title: "", category: "", subCategory: "", volume: "", content: "" });
-        setContent("");
-        // show success alert
-        alert(`${response.data.title} blog post is created`);
+        console.log(response.data);
       })
       .catch((error) => {
-        console.log(error.response);
-        alert(error.response.data.error);
+        console.error(error);
       });
   };
 
+  
   return (
 
     <>
@@ -117,24 +136,24 @@ const PostManager = () => {
                 <input
                   type="text"
                   className="form-control"
-                  name="postTitle"
-                  onChange={handleChange("title")}
-                  value={title}
-                  placeholder='Post Title'
+                  placeholder='Title'
+                  onChange={handleChange}
+                  name="title"
+                  value={formData.title}
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="category">Category:</label>
                 <select
                   className="form-control"
-                  onChange={handleChange("category")}
+                  onChange={handleChange}
                   name="category"
-                  value={category}
+                  value={formData.category}
                 >
                   <option value="">Select a category</option>
-                  {categories.map((cat) => (
-                    <option key={cat._id} value={cat._id}>
-                      {cat.categoryName}
+                  {categories.map((category) => (
+                    <option key={category._id} value={category._id}>
+                      {category.categoryName}
                     </option>
                   ))}
                 </select>
@@ -143,14 +162,14 @@ const PostManager = () => {
                 <label htmlFor="subCategory">Sub Category:</label>
                 <select
                   className="form-control"
-                  onChange={handleChange("subCategory")}
+                  onChange={handleChange}
                   name="subCategory"
-                  value={subCategory}
+                  value={formData.subCategory}
                 >
-                  <option value="">Select a sub-category</option>
-                  {subCategories.map((subcat) => (
-                    <option key={subcat._id} value={subcat._id}>
-                      {subcat.subCategory}
+                  <option value="">Select a category</option>
+                  {subCategories.map((subcategory) => (
+                    <option key={subcategory._id} value={subcategory._id}>
+                      {subcategory.subCategory}
                     </option>
                   ))}
                 </select>
@@ -159,9 +178,9 @@ const PostManager = () => {
                 <label htmlFor="volume">Volume:</label>
                 <select
                   className="form-control"
-                  onChange={handleChange("volume")}
+                  onChange={handleChange}
                   name="volume"
-                  value={volume}
+                  value={formData.volume}
                 >
                   <option value="">Select a volume</option>
                   {volumes.map((vol) => (
@@ -169,20 +188,34 @@ const PostManager = () => {
                       {vol.volumeNum}
                     </option>
                   ))}
-                </select>
+              </select>
               </div>
               <div className="form-group">
                 <label>Post Content:</label>
                 <ReactQuill
-                  modules={modules}
-                  onChange={handleContent}
-                  value={content}
+                  modules={modules}                  
+                  onChange={handleQuillChange}
+                  name="content"
+                  value={formData.content}
                   theme="snow"
                   className=""
                   placeholder="Write something.."
                   style={{ border: "1px solid yellow" }}
                 />
               </div>
+
+              <div className="form-group">
+              <label htmlFor="images">Attached Images:</label>
+              <input
+                type="file"
+                multiple
+                className="form-control"
+                placeholder="Select Images"
+                onChange={handleFileChange}
+                name="images"
+              />
+            </div>
+
               <button className="btn btn-primary">
                 Submit
               </button>

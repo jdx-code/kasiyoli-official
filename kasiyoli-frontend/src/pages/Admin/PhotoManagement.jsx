@@ -66,6 +66,37 @@ function PhotoManagement() {
     width: '50%',
   };
 
+  const photoType = [
+    {
+      "_id" : 1,
+      "event" : "Student"    
+    },
+    {
+      "_id" : 2,
+      "event" : "Tezpur"    
+    },
+    {
+      "_id" : 3,
+      "event" : "Jaipur"    
+    },
+    {
+      "_id" : 4,
+      "event" : "College Week"    
+    },
+    {
+      "_id" : 5,
+      "event" : "College Image"    
+    },
+    {
+      "_id" : 6,
+      "event" : "Farewell"    
+    },
+    {
+      "_id" : 7,
+      "event" : "Wall Magazine"    
+    },
+]
+
   return (
     <div className="row">
       <div className="col-sm-2">
@@ -124,14 +155,28 @@ function PhotoManagement() {
             </div>
             <div className="form-group">
               <label htmlFor="photoType">Photo Type:</label>
-              <input
+              {/* <input
                 type="text"
                 className="form-control"
                 placeholder="Photo Type"
                 onChange={handleChange}
                 name="photoType"
                 value={formData.photoType}
-              />
+              /> */}
+              <select
+                className="form-control"
+                onChange={handleChange}
+                name="photoType"
+                value={formData.photoType}
+              >
+                <option value="">Select photoType</option>
+                {photoType.map((photo) => (
+                  <option key={photo._id} value={photo._id}>
+                    {photo.event}
+                  </option>
+                ))}
+              </select>
+              
             </div>
             <br />
             <button className="btn btn-primary">
