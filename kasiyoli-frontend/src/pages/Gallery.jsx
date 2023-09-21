@@ -1,46 +1,50 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import Image from '../components/Image'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Image from '../components/Image';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 function Gallery() {
-
-  const [data, setData] = useState([])
-
+  const [data, setData] = useState([]);
   useEffect(() => {
-      // Fetch categories from the server when the component mounts
-      axios.get('http://localhost:5000/admin/photo')
+    // Fetch categories from the server when the component mounts
+    axios
+      .get('http://localhost:5000/admin/photo')
       .then((res) => {
-          setData(res.data)            
+        setData(res.data);
       })
       .catch((error) => {
-          console.error('Error fetching Photo:', error);
+        console.error('Error fetching Photo:', error);
       });
-  }, []); // Empty dependency array to run the effect only once    
+  }, []); // Empty dependency array to run the effect only once
 
-  const { volumeID } = useParams()
+  const { volumeID } = useParams();
 
-  const filterdDataStudent = data.filter(item => item.volume == volumeID).filter(item => item.photoType == "")
-  const filterdDataTezpur = data.filter(item => item.volume == volumeID).filter(item => item.photoType == "2")
-  const filterdDataJaipur = data.filter(item => item.volume == volumeID).filter(item => item.photoType == "3")
-  const filterdDataCollegeWeek = data.filter(item => item.volume == volumeID).filter(item => item.photoType == "4")
-  const filterdDataCollegeImage = data.filter(item => item.volume == volumeID).filter(item => item.photoType == "5")
-  const filterdDataFarewell = data.filter(item => item.volume == volumeID).filter(item => item.photoType == "6")
-  const filterdDataWallMagazine = data.filter(item => item.volume == volumeID).filter(item => item.photoType == "7")
-  
+  // Define filters for different photo types
+  const filterData = (photoType) =>
+    data.filter((item) => item.volume === volumeID && item.photoType === photoType);
+
   return (
     <div>
-        <Navbar links="magazineLinks" volumeID={volumeID} />
-        <Image data={filterdDataStudent} />
-        <Image data={filterdDataTezpur} />
-        <Image data={filterdDataJaipur} />
-        <Image data={filterdDataCollegeWeek} />
-        <Image data={filterdDataCollegeImage} />
-        <Image data={filterdDataFarewell} />
-        <Image data={filterdDataWallMagazine} />
+      <Navbar links="magazineLinks" volumeID={volumeID} />
+      {volumeID === '64feb45c44ca262782cd917f' ? (
+        <>
+          <Image data={filterData('')} />
+          <Image data={filterData('2')} />
+          <Image data={filterData('3')} />
+          <Image data={filterData('4')} />
+          <Image data={filterData('5')} />
+          <Image data={filterData('6')} />
+          <Image data={filterData('7')} />
+        </>
+      ) : volumeID === '64feb73c44ca262782cd9191' ? (
+        <>
+          <Image data={filterData('8')} />
+          <Image data={filterData('9')} />
+        </>
+      ) : null /* Add a default case or render nothing when volumeID doesn't match either condition */}
     </div>
-  )
+  );
 }
 
-export default Gallery
+export default Gallery;

@@ -95,6 +95,14 @@ function PhotoManagement() {
       "_id" : 7,
       "event" : "Wall Magazine"    
     },
+    {
+      "_id" : 8,
+      "event" : "সাংস্কৃতিক শোভাযাত্ৰা"    
+    },
+    {
+      "_id" : 9,
+      "event" : "প্ৰাচীৰ পত্ৰিকাৰ প্ৰস্তুতি"    
+    },
 ]
 
   return (
@@ -155,14 +163,7 @@ function PhotoManagement() {
             </div>
             <div className="form-group">
               <label htmlFor="photoType">Photo Type:</label>
-              {/* <input
-                type="text"
-                className="form-control"
-                placeholder="Photo Type"
-                onChange={handleChange}
-                name="photoType"
-                value={formData.photoType}
-              /> */}
+             
               <select
                 className="form-control"
                 onChange={handleChange}
