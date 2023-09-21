@@ -193,7 +193,7 @@ module.exports = {
 
   getPosts: async (req, res) => {
     try{
-      const post = await Post.find().populate('category')
+      const post = await Post.find({volume: req.params.volumeID}).populate('category')
       
       return res.json(post)
     }catch(err){
@@ -232,6 +232,17 @@ module.exports = {
   
   addPost: async (req, res) => {
     try {
+
+      // Upload the files to Cloudinary
+      const uploadPromises = req.files.map((file) => {
+        return cloudinary.uploader.upload(file.path)
+      })
+
+      // Wait for all files to be uploaded to cloudinary
+      const results = await Promise.all(uploadPromises)
+      const imageUrls = results.map((result) => result.secure_url)
+      const cloudinary_ids = results.map((result) => result.public_id)
+
       // Extract text fields from the form data
       const { title, category, subCategory, volume, content } = req.body;      
   
@@ -241,7 +252,10 @@ module.exports = {
         category,
         subCategory,
         volume,
-        postContent : content,        
+        postContent : content,
+        
+        images: imageUrls,
+        cloudinary_ids: cloudinary_ids,
       });
   
       console.log('post added');

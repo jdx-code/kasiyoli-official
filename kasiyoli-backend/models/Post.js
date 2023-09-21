@@ -26,6 +26,13 @@ const PostSchema = new mongoose.Schema({
         min: 5,
         max: 2000000
     },
+    images: {
+        type: Array,
+        required: true,
+    },
+    cloudinary_ids: {
+        type: Array,
+    },
     creationDate: {
         type: Date,
     },
