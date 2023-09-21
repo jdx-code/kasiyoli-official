@@ -16,7 +16,7 @@ const PostCard = (props) => {
                                 <hr />
                                 <p className="card-text">{props.category}</p>
                                 <button className="btn btn-indigo btn-rounded btn-md">
-                                    <Link to={`/content/${props.id}`}>
+                                    <Link to={`/readmore/${props.id}/${props.volume}`}>
                                     Read more</Link>
                                 </button>
                             </div>

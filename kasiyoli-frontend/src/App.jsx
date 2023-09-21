@@ -42,7 +42,7 @@ function App() {
             <Route path='/volume-manage' element={<VolumeManage />} />
 
             {/* Read More Route */}
-            <Route path='/content/:postID' element={<ReadMore />} />
+            <Route path='/readmore/:postID/:volumeID' element={<ReadMore />} />
 
         </Routes>
       </>

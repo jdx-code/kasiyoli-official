@@ -56,6 +56,7 @@ const PostCardContent = () => {
       id={item._id}
       title={item.postTitle}
       category={item.category.categoryName}
+      volume={item.volume}
     />
   ));
   

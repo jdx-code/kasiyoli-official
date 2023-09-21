@@ -191,6 +191,19 @@ module.exports = {
     }
   },
 
+  getReadMoreContent: async (req, res) => {
+    try{
+      const post = await Post.findById(req.params.postID).populate('category')
+      
+      return res.json(post)
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Found",
+        success:false
+      })
+    }
+  },
+
   getPosts: async (req, res) => {
     try{
       const post = await Post.find({volume: req.params.volumeID}).populate('category')
@@ -244,7 +257,7 @@ module.exports = {
       const cloudinary_ids = results.map((result) => result.public_id)
 
       // Extract text fields from the form data
-      const { title, category, subCategory, volume, content } = req.body;      
+      const { title, category, subCategory, volume, content } = req.body;       
   
       // Create a new Post document
       const newPost = await Post.create({
