@@ -39,6 +39,7 @@ function Gallery() {
         </>
       ) : volumeID === '64feb73c44ca262782cd9191' ? (
         <>
+          <Image data={filterData('1')} />
           <Image data={filterData('8')} />
           <Image data={filterData('9')} />
           <Image data={filterData('10')} />
