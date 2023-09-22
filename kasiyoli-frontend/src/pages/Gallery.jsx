@@ -41,6 +41,11 @@ function Gallery() {
         <>
           <Image data={filterData('8')} />
           <Image data={filterData('9')} />
+          <Image data={filterData('10')} />
+          <Image data={filterData('11')} />
+          <Image data={filterData('12')} />
+          <Image data={filterData('13')} />
+          <Image data={filterData('14')} />
         </>
       ) : null /* Add a default case or render nothing when volumeID doesn't match either condition */}
     </div>

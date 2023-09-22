@@ -1,29 +1,30 @@
 import '../Style.css'
+import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
     return (
         <>
             <div className="sidebar">
-                <a href="#home">Home</a>
-                <a href='/volume-manage'>Volume Manage</a>
-                <a href="/category">Category</a>
-                <a href='/sub-category'>Sub Category</a>
+                <NavLink to="/dashboard">Home</NavLink>
+                <NavLink to='/volume-manage'>Volume Manage</NavLink>
+                <NavLink to="/category">Category</NavLink>
+                <NavLink to='/sub-category'>Sub Category</NavLink>
 
                 {/* <div className="dropdown">
-                    <a href="" className="dropdown-toggle" data-bs-toggle="dropdown">
+                    <NavLink to="" className="dropdown-toggle" data-bs-toggle="dropdown">
                         Dropdown button
-                    </a>
+                    </NavLink>
                     <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="#">Action</a></li>
-                        <li><a className="dropdown-item" href="#">Another action</a></li>
-                        <li><a className="dropdown-item" href="#">Something else here</a></li>
+                        <li><NavLink className="dropdown-item" to="#">Action</NavLink></li>
+                        <li><NavLink className="dropdown-item" to="#">Another action</NavLink></li>
+                        <li><NavLink className="dropdown-item" to="#">Something else here</NavLink></li>
                     </ul>   
                 </div> */}
 
-                <a href='/post-manager'>Post</a>
-                <a href="/gallery-management">Gallery</a>
-                <a href='/photo-manage'>Photo</a>
-                <a href="#about">About</a>
+                <NavLink to='/post-manager'>Post</NavLink>
+                <NavLink to="/gallery-management">Gallery</NavLink>
+                <NavLink to='/photo-manage'>Photo</NavLink>
+                <NavLink to="#about">About</NavLink>
             </div>
 
         </>
