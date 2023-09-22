@@ -4,6 +4,7 @@ import "../App.css";
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import SidebarCard from '../components/SidebarCard';
+import DOMPurify from "dompurify";
 
 const ReadMore = () => {
     const { postID, volumeID } = useParams();
@@ -55,12 +56,14 @@ const ReadMore = () => {
                             <div style={boxStyle}>
                                 <h1 className="text-center text-4xl">{post.postTitle}</h1>
                                 <img src={post.images} className="mx-auto d-block"/>
-                                <p>{post.postContent
+                                {/* <p>{post.postContent
                                     .replace(/<(?:.|\n)*?>/gm, '')
                                     .replace(/&zwnj;|&nbsp;/g, '')
                                     .replace(/&rsquo;|&hellip;/g, '')
                                     }
-                                </p> 
+                                </p>  */}
+
+                                <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(post.postContent)}}></div>
                             </div>
                         ) : (
                             <p>Loading...</p>
