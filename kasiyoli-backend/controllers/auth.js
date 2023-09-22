@@ -245,10 +245,12 @@ module.exports = {
   
   addPost: async (req, res) => {
     try {
-
+     
       // Upload the files to Cloudinary
       const uploadPromises = req.files.map((file) => {
-        return cloudinary.uploader.upload(file.path)
+        return cloudinary.uploader.upload(file.path, {
+          folder: "kasiyoli"
+        })
       })
 
       // Wait for all files to be uploaded to cloudinary
