@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 const SidebarCard = (props) => {    
 
     console.log(props)
@@ -22,7 +25,7 @@ const SidebarCard = (props) => {
                                         {props.post ? ( 
                                             <p>{props.post.map(item => {
                                                 return (
-                                                    <li><a href="">{item.postTitle}</a></li>
+                                                    <li><Link to={`/readmore/${item._id}/${item.volume}`}>{item.postTitle}</Link></li>
                                                 )
                                             })}</p> 
                                         ) : (
