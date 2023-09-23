@@ -3,6 +3,8 @@ import axios from "axios";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Sidebar from '../../components/Sidebar';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const modules = {
   toolbar: [
@@ -90,10 +92,24 @@ const PostManager = () => {
       axios
       .post("http://localhost:5000/admin/add-post", formData)
       .then((response) => {
-        console.log(response.data);
+        toast("Post created successfully !", {
+          position: toast.POSITION.TOP_CENTER
+        })
+         // Clear form inputs on successful submission
+        setFormData({
+          title: "",
+          category: "",
+          subCategory: "",
+          volume: "",
+          content: "",
+        });
       })
       .catch((error) => {
         console.error(error);
+        // Display a notification on error
+        toast.error("Error creating post. Please check your input.", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       });
   };
   
@@ -183,6 +199,7 @@ const PostManager = () => {
                 Submit
               </button>
             </form>
+            <ToastContainer />
           </div>
         </div>
       </div>
