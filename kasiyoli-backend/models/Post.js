@@ -4,10 +4,7 @@ const PostSchema = new mongoose.Schema({
     postTitle: {
         type: String,
         required: true,
-    },
-    imageUrl: { // Include a field for storing the image URL
-        type: String,
-    },
+    },    
     category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',       
@@ -26,13 +23,6 @@ const PostSchema = new mongoose.Schema({
         min: 5,
         max: 2000000
     },
-    images: {
-        type: Array,
-        required: true,
-    },
-    cloudinary_ids: {
-        type: Array,
-    },
     creationDate: {
         type: Date,
     },
@@ -41,10 +31,7 @@ const PostSchema = new mongoose.Schema({
     },
     isActive: {
         type: Boolean,
-    },
-    postUrl: {
-        type: String,
-    }
+    },    
 })
 
 module.exports = mongoose.model('Post', PostSchema)

@@ -21,7 +21,8 @@ router.delete('/delete-subcategory/:id', authController.deleteSubCategory)
 router.get('/post/:volumeID', authController.getPost) // Route for paggination
 router.get('/get-post/:volumeID', authController.getPosts)
 router.get('/readmore/:postID/:volumeID', authController.getReadMoreContent)
-router.post('/add-post', upload.array("images", 5), authController.addPost) // Multiple Upload
+// router.post('/add-post', upload.array("images", 5), authController.addPost) // Multiple Upload
+router.post('/add-post', authController.addPost) // Multiple Upload
 router.get('/get-post/:id', authController.getPostById)
 router.put('/edit-post/:id', authController.editPost)
 router.delete('/delete-post/:id', authController.deletePost)

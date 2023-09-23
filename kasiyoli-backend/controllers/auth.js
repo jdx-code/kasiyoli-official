@@ -244,20 +244,7 @@ module.exports = {
   
   
   addPost: async (req, res) => {
-    try {
-     
-      // Upload the files to Cloudinary
-      const uploadPromises = req.files.map((file) => {
-        return cloudinary.uploader.upload(file.path, {
-          folder: "kasiyoli"
-        })
-      })
-
-      // Wait for all files to be uploaded to cloudinary
-      const results = await Promise.all(uploadPromises)
-      const imageUrls = results.map((result) => result.secure_url)
-      const cloudinary_ids = results.map((result) => result.public_id)
-
+    try {      
       // Extract text fields from the form data
       const { title, category, subCategory, volume, content } = req.body;       
   
@@ -267,10 +254,7 @@ module.exports = {
         category,
         subCategory,
         volume,
-        postContent : content,
-        
-        images: imageUrls,
-        cloudinary_ids: cloudinary_ids,
+        postContent : content,        
       });
   
       console.log('post added');
