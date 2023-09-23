@@ -40,17 +40,19 @@ const MainLayout = (props) => {
                     <h1 className="text-2xl font-bold my-6">
                         {item.subTitle}
                     </h1>
-                    <p className="my-2">{item.question}</p>
-                    
-                    <p className="my-2">{item.answer}</p>
-                    <p>{item.college}</p>
-                    <div className="flex flex-col items-end my-8">
-                        <p>{item.greetings}</p>
-                        <p>{item.position}</p>
-                    </div>
+                    <div className="my-2 text-2xl text-justify">
+                        <p>{item.question}</p>
+                        
+                        <p>{item.answer}</p>
+                        <p>{item.college}</p>
+                        <div className="flex flex-col items-end my-8">
+                            <p>{item.greetings}</p>
+                            <p>{item.position}</p>
+                        </div>
+                    </div>                    
                 </div>
             ) : (    
-                <div>
+                <div className="my-2 text-2xl text-justify">
                     <h1 className="text-2xl font-bold my-6">
                         {item.title}
                     </h1>

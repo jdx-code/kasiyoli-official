@@ -23,9 +23,9 @@ const SidebarCard = (props) => {
                                     <p className="card-text white-text mb-4">
                                         
                                         {props.post ? ( 
-                                            <p>{props.post.map(item => {
+                                            <p className="my-2">{props.post.map(item => {
                                                 return (
-                                                    <li><Link to={`/readmore/${item._id}/${item.volume}`}>{item.postTitle}</Link></li>
+                                                    <li className="p-2 text-md font-medium"><Link to={`/readmore/${item._id}/${item.volume}`}>{item.postTitle}</Link></li>
                                                 )
                                             })}</p> 
                                         ) : (
