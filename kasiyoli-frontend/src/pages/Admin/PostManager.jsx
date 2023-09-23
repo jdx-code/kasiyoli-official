@@ -21,8 +21,6 @@ const modules = {
 
 const PostManager = () => {
 
-  const [selectedFile, setSelectedFile] = useState(null);
-
   const [formData, setFormData] = useState({
     title: "",
     category: "",
@@ -68,11 +66,6 @@ const PostManager = () => {
       });
   }, []);
 
-
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files);
-  };
-
   const handleChange = (event) => {
     setFormData((prevFormData) => {
       return {
@@ -94,24 +87,8 @@ const PostManager = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const formDatas = new FormData();
-
-    formDatas.append('title', formData.title);
-    formDatas.append('category', formData.category);
-    formDatas.append('subCategory', formData.subCategory);
-    formDatas.append('volume', formData.volume);
-    formDatas.append('content', formData.content);
-    // Append all selected files
-    for (let i = 0; i < selectedFile.length; i++) {
-      formDatas.append('images', selectedFile[i]);
-    }
-
-
-    axios.post('http://localhost:5000/admin/add-post', formDatas, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
+      axios
+      .post("http://localhost:5000/admin/add-post", formData)
       .then((response) => {
         console.log(response.data);
       })
@@ -119,10 +96,8 @@ const PostManager = () => {
         console.error(error);
       });
   };
-
   
   return (
-
     <>
       <div className="row">
         <div className="col-sm-2">
@@ -203,18 +178,6 @@ const PostManager = () => {
                   style={{ border: "1px solid yellow" }}
                 />
               </div>
-
-              <div className="form-group">
-              <label htmlFor="images">Attached Images:</label>
-              <input
-                type="file"
-                multiple
-                className="form-control"
-                placeholder="Select Images"
-                onChange={handleFileChange}
-                name="images"
-              />
-            </div>
 
               <button className="btn btn-primary">
                 Submit
