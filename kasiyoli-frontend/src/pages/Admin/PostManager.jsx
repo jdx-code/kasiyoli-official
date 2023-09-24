@@ -48,14 +48,14 @@ const PostManager = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/admin/sub-category')
+      .get(`http://localhost:5000/admin/sub-category/${formData.category}`)
       .then((res) => {
         setSubCategories(res.data);
       })
       .catch((error) => {
         console.error('Error fetching sub-categories:', error);
       });
-  }, []);
+  }, [formData.category]);
 
   useEffect(() => {
     axios

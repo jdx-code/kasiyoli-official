@@ -55,7 +55,6 @@ const ReadMore = () => {
                         {post ? (
                             <div style={boxStyle}>
                                 <h1 className="text-center text-4xl">{post.postTitle}</h1>
-                                <img src={post.images} className="mx-auto d-block"/>
                                 {/* <p>{post.postContent
                                     .replace(/<(?:.|\n)*?>/gm, '')
                                     .replace(/&zwnj;|&nbsp;/g, '')
