@@ -12,7 +12,7 @@ router.get('/get-category/:id', authController.getCategoryById)
 router.put('/edit-category/:id', authController.editCategory)
 router.delete('/delete-category/:id', authController.deleteCategory)
 
-router.get('/sub-category', authController.getSubCategory)
+router.get('/sub-category/:categories', authController.getSubCategory)
 router.post('/add-subcategory', authController.addSubCategory)
 router.get('/get-subcategory/:id', authController.getSubCategoryById)
 router.put('/edit-subcategory/:id', authController.editSubCategory)

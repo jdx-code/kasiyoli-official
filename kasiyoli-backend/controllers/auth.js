@@ -106,7 +106,7 @@ module.exports = {
 
   getSubCategory: async (req, res) => {
     try{
-      const subCategory = await SubCategory.find().populate('category')
+      const subCategory = await SubCategory.find({category: req.params.categories}).populate('category')
       return res.json(subCategory)
     }catch(err){
       console.error(err)
