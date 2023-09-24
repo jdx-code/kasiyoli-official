@@ -5,7 +5,6 @@ const homeRoutes = require('./routes/home')
 const adminRoutes = require('./routes/admin')
 const cors = require('cors')
 
-
 const app = express()
 
 require('dotenv').config({ path: './config/.env' })
