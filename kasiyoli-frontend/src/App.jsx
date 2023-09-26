@@ -20,10 +20,13 @@ import ReadMore from './pages/ReadMore'
 
 function App() {
 
+    let baseUrl = 'https://kasiyoli-client.onrender.com'
+    // let baseUri = 'http://localhost:5000'
+
     return (
       <>
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home baseUrl={baseUrl}/>} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/editorial/:volumeID" element={<Editorial />} />
