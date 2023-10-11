@@ -62,7 +62,7 @@ const ReadMore = () => {
                                     }
                                 </p>  */}
 
-                                <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(post.postContent)}}></div>
+                                <div className="text-2xl" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(post.postContent)}}></div>
                             </div>
                         ) : (
                             <p>Loading...</p>

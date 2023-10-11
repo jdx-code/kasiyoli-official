@@ -22,10 +22,13 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
+    //let baseUrl = 'https://kasiyoli-client.onrender.com'
+     let baseUrl = 'http://localhost:5000'
+
     return (
       <>
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home baseUrl={baseUrl}/>} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/editorial/:volumeID" element={<Editorial />} />

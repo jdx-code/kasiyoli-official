@@ -3,13 +3,13 @@ import axios from 'axios'
 import Navbar from '../components/Navbar'
 import MagazineCards from '../components/MagazineCard'
 
-const Home = () => {
+const Home = (props) => {
 
     const [data, setData] = useState([])    
 
     useEffect(() => {
         // Fetch categories from the server when the component mounts
-        axios.get('http://localhost:5000/admin/volume')
+        axios.get(`${props.baseUrl}/admin/volume`)
         .then((res) => {
             setData(res.data)            
         })

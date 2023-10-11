@@ -1,14 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const connectDB = require('./config/database')
+const connectDB = require('./database')
 const homeRoutes = require('./routes/home')
 const adminRoutes = require('./routes/admin')
 const cors = require('cors')
 
-
 const app = express()
 
-require('dotenv').config({ path: './config/.env' })
+require('dotenv').config({ path: '.env' })
 
 connectDB()
 
