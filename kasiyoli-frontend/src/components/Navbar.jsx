@@ -49,16 +49,16 @@ const Navbar = (props) => {
     // Function to generate navigation links
   const generateNavLinks = (links) => {
     return (
-      <div className="px-2 md:px-0 py-3 space-y-2 md:space-y-0 md:space-x-2 text-[#fef8ef] font-medium">
+      <div className="px-2 md:px-0 py-3 space-y-2 md:space-y-0 md:space-x-2 text-[#14a800] text-xl font-medium">
         <NavLink 
-          className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+          className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-[#14a800] focus:outline-none focus:text-white focus:bg-[#14a800]"
           to="/"
         > 
           Home
         </NavLink>
         {links.map(({ linkName, to }) => (
           <NavLink 
-            className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+            className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-[#14a800] focus:outline-none focus:text-white focus:bg-[#14a800]"
             key={to} 
             to={to}
           >
@@ -74,7 +74,7 @@ const Navbar = (props) => {
       <nav>
         <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4">
           <div className="flex-shrink-0 font-bold tracking-wider">
-            <p>Kasiy7oli</p>
+            <p className="text-[#14a800] text-2xl">Kasiyoli</p>
           </div>
           
           <div className="hidden md:block">

@@ -18,6 +18,8 @@ import PostManager from './pages/Admin/PostManager'
 import PhotoManagement from './pages/Admin/PhotoManagement'
 import ReadMore from './pages/ReadMore'
 
+import { useState, useEffect } from 'react';
+
 function App() {
 
     return (

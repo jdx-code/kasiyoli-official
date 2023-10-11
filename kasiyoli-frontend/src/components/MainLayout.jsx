@@ -22,7 +22,7 @@ const MainLayout = (props) => {
     }, []); // Empty dependency array to run the effect only once
 
     const boxStyle = {
-        border: "2px solid #000",
+        border: "2px solid #14a800",
         padding: "15px",
         overflowY: "scroll",
         height: "90vh"
@@ -84,7 +84,7 @@ const MainLayout = (props) => {
                         {renderedContent}                        
                     </section>      
                 </div>
-                <div className="col-md-4 my-2">
+                <div className="col-md-4 my-2 p-2 rounded-sm border-2 border-[#14a800]">
                     {props.img ? (
                         <img 
                             src={props.img} 

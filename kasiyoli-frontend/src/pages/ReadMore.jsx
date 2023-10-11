@@ -37,7 +37,7 @@ const ReadMore = () => {
 
 
     const boxStyle = {
-        border: "2px solid #fff",
+        border: "2px solid #14a800",
         padding: "15px",
         overflowY: "scroll",
         height: "90vh"

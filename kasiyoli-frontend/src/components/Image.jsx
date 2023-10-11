@@ -19,36 +19,33 @@ const Image = (props) => {
                     {props.data.map((item) => {
                         return(
                             
-                            <div className="col border-4 rounded-lg border-blue-400 mx-4">                                                                                            
-                            <div className="card">
-                                {item.file ? (
-                                    <a href={item.file} data-fancybox="gallery" data-caption="Caption #2">
-                                        <img src={item.file} className="card-img-top w-full h-72" />
-                                    </a>
-                                ):(
-                                    <a href={item.image} data-fancybox="gallery" data-caption={item.studentName}>
-                                        <img src={item.image} className="card-img-top w-full h-72" />
-                                    </a>
-                                )}
-                                {item.description ? (                              
-                                    <div className="card-body">
-                                        <h5 className="card-title">{item.description}</h5>
-                                        <p className="card-text">
-                                        </p>
-                                    </div>
-                                ):(
-                                    <div className="card-body">
-                                        <h5 className="card-title">{item.studentName}</h5>
-                                        <p className="card-text">
-                                        </p>
-                                    </div>
-                                )}
+                            <div className="col p-0 border-2 rounded-lg border-[#14a800] mx-4">                                                                                            
+                                <div className="card p-2">
+                                    {item.file ? (
+                                        <a href={item.file} data-fancybox="gallery" data-caption="Caption #2">
+                                            <img src={item.file} className="h-72" />
+                                        </a>
+                                    ):(
+                                        <a href={item.image} data-fancybox="gallery" data-caption={item.studentName}>
+                                            <img src={item.image} className="w-full h-72" />
+                                        </a>
+                                    )}
+                                    {item.description ? (                              
+                                        <div className="card-body">
+                                            <h5 className="card-title">{item.description}</h5>
+                                            <p className="card-text">
+                                            </p>
+                                        </div>
+                                    ):(
+                                        <div className="card-body">
+                                            <h5 className="card-title">{item.studentName}</h5>
+                                            <p className="card-text">
+                                            </p>
+                                        </div>
+                                    )}
 
-                                <div className="card-footer">
-                                    <small className="text-muted"></small>
                                 </div>
                             </div>
-                        </div>
                             
                         )                            
                     })

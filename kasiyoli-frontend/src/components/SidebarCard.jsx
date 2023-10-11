@@ -14,13 +14,13 @@ const SidebarCard = (props) => {
                         <img src={props.img} />
                         ) : (                            
                         
-                            <div className="card">
+                            <div className="card border-2 border-[#14a800]">
                                 <div className="card-body elegant-color white-text rounded-bottom">
                                     <h4 className="card-title">Title</h4>
                                     <hr className="hr-light" />
 
                                     <br />
-                                    <p className="card-text white-text mb-4">
+                                    <p className="card-text white-text mb-4 p-4">
                                         
                                         {props.post ? ( 
                                             <p className="my-2">{props.post.map(item => {
@@ -31,7 +31,7 @@ const SidebarCard = (props) => {
                                         ) : (
                                             <div className="input-group">
                                                 <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                                                <button type="button" className="btn btn-outline-primary">search</button>
+                                                <button type="button" className="btn hover:bg-[#14a800] hover:text-white border-2 border-[#14a800]">search</button>
                                             </div> 
                                         )}
                                     </p>
