@@ -205,17 +205,23 @@ module.exports = {
   },
 
   getPosts: async (req, res) => {
-    try{
-      const post = await Post.find({volume: req.params.volumeID}).populate('category')
-      
-      return res.json(post)
-    }catch(err){
+    try {
+      const limit = parseInt(req.query.limit) || 10; // You can set the default limit as you wish
+  
+      const post = await Post
+        .find({ volume: req.params.volumeID })
+        .populate('category')
+        .limit(limit);
+  
+      return res.json(post);
+    } catch (err) {
       return res.status(500).json({
-        message:"Not Found",
-        success:false
-      })
+        message: "Not Found",
+        success: false
+      });
     }
   },
+  
 
   getPost: async (req, res) => {
     const page = parseInt(req.query.page) || 1;
