@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SidebarCard = (props) => {    
-
-    console.log(props)
     
     return(
         <>
@@ -16,16 +14,16 @@ const SidebarCard = (props) => {
                         
                             <div className="card border-2 border-[#14a800]">
                                 <div className="card-body elegant-color white-text rounded-bottom">
-                                    <h4 className="card-title">Title</h4>
+                                    <h4 className="card-title text-3xl">শেহতীয়া তথ্য/লেখা </h4>
                                     <hr className="hr-light" />
 
                                     <br />
-                                    <p className="card-text white-text mb-4 p-4">
+                                    <p className="card-text white-text p-4">
                                         
                                         {props.post ? ( 
                                             <p className="my-2">{props.post.map(item => {
                                                 return (
-                                                    <li className="p-2 text-md font-medium text-xl"><Link to={`/readmore/${item._id}/${item.volume}`}>{item.postTitle}</Link></li>
+                                                    <li className="p-0 text-md font-medium text-lg hover:text-[#14a800]"><Link to={`/readmore/${item._id}/${item.volume}`} className="hover:text-[#14a800]">{item.postTitle}</Link></li>
                                                 )
                                             })}</p> 
                                         ) : (

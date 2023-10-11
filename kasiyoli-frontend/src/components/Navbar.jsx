@@ -74,7 +74,7 @@ const Navbar = (props) => {
       <nav>
         <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4">
           <div className="flex-shrink-0 font-bold tracking-wider">
-            <p className="text-[#14a800] text-2xl">Kasiyoli</p>
+            <p className="text-[#14a800] text-2xl">কাঁচিয়লি</p>
           </div>
           
           <div className="hidden md:block">

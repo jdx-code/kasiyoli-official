@@ -84,7 +84,7 @@ const MainLayout = (props) => {
                         {renderedContent}                        
                     </section>      
                 </div>
-                <div className="col-md-4 my-2 p-2 rounded-sm border-2 border-[#14a800]">
+                <div className="col-md-4 my-2 rounded-sm border-2 border-[#14a800]">
                     {props.img ? (
                         <img 
                             src={props.img} 
@@ -97,7 +97,7 @@ const MainLayout = (props) => {
                                 title="ইয়াত বিচাৰক"
                             />                    
 
-                            <SidebarCard post={post}/>
+                            <SidebarCard post={post} />
                         </div>
                     )}
                 </div>
