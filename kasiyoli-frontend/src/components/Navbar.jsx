@@ -72,9 +72,15 @@ const Navbar = (props) => {
     return(
 
       <nav>
-        <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4">
+        <div className="mx-auto flex items-center justify-between h-20 px-4 bg-[#e6e6d6]">
           <div className="flex-shrink-0 font-bold tracking-wider">
-            <p className="text-[#14a800] text-2xl">কাঁচিয়লি</p>
+          <NavLink 
+            className="text-[#14a800] text-2xl hover:text-[#36922a]"            
+            to="/"
+          >
+            <p>কাঁচিয়লি</p>
+          </NavLink>
+            
           </div>
           
           <div className="hidden md:block">

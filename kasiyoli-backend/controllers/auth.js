@@ -206,12 +206,13 @@ module.exports = {
 
   getPosts: async (req, res) => {
     try {
-      const limit = parseInt(req.query.limit) || 10; // You can set the default limit as you wish
+      const limit = parseInt(req.query.limit) || 5; // You can set the default limit as you wish
   
       const post = await Post
         .find({ volume: req.params.volumeID })
         .populate('category')
-        .limit(limit);
+        .sort({ creationDate: -1 })
+        .limit(limit)        
   
       return res.json(post);
     } catch (err) {

@@ -14,7 +14,7 @@ const SidebarCard = (props) => {
                         
                             <div className="card border-2 border-[#14a800]">
                                 <div className="card-body elegant-color white-text rounded-bottom">
-                                    <h4 className="card-title text-3xl">শেহতীয়া তথ্য/লেখা </h4>
+                                    <h4 className="card-title text-xl">শেহতীয়া তথ্য/লেখা</h4>
                                     <hr className="hr-light" />
 
                                     <br />
@@ -27,7 +27,7 @@ const SidebarCard = (props) => {
                                                 )
                                             })}</p> 
                                         ) : (
-                                            <div className="input-group">
+                                            <div className="input-group">                                                
                                                 <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                                                 <button type="button" className="btn hover:bg-[#14a800] hover:text-white border-2 border-[#14a800]">search</button>
                                             </div> 

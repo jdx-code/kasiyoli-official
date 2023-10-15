@@ -5,21 +5,21 @@ const MagazineCards = (props) => {
 
     return (                                                  
         <>          
-            <div className="row row-cols-1 row-cols-md-4 g-6 flex justify-center my-24">        
-                {props.data.map((item) => (
-                <Link key={item._id} to={`/welcome/${item._id}`}>
-                    <div className="transition-opacity duration-500 hover:opacity-transform hover:-translate-y-1 rounded-md">
-                        <div className="card shadow-2xl rounded-md hover:border-b-4 hover:border-l-4 border-[#14a800]">
-                            <img src={item.coverImage} className="flex items-center h-60 w-auto rounded-md my-1 mx-2 p-2"
+            <div className='flex flex-col p-4 sm:flex-row sm:justify-center items-center'>
+                {props.data.map((item) => (               
+                    
+                    <div className="p-[10px] m-4 sm:m-4 w-[75%] sm:w-[45%] md:w-[38%] lg:w-[30%] xl:w-[24%] bg-[#fff] shadow-2xl rounded-md hover:border-b-4 hover:border-l-4 border-[#14a800]">
+                        <Link key={item._id} to={`/welcome/${item._id}`}>
+                            <img src={item.coverImage} className="w-full h-64"
                                 alt="Skyscrapers" />
-                            <div className="card-body text-center">
-                                <h5 className="card-title">{item.volumeYear}</h5>
-                                <p className="card-text">{item.volumeNum}</p>
-                                <p className="card-text">{item.volumeEditor}</p>
+                            <div className="text-center">
+                                <h5 className="">{item.volumeYear}</h5>
+                                <p className="">{item.volumeNum}</p>
+                                <p className="">{item.volumeEditor}</p>
                             </div>
-                        </div>  
-                    </div>
-                </Link>
+                        </Link>
+                    </div>                                                         
+                
                 ))}    
             </div>
         </>      
