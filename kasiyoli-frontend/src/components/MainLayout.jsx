@@ -31,29 +31,29 @@ const MainLayout = (props) => {
     const volume = props.volume
     
     const renderedContent = contentArray.map(item => (
-        <div key={item.id}>
+        <div key={item.id} className='p-4'>
             {item.question ? (
                 <div>
-                    <h1 className="text-2xl font-bold my-6">
+                    <h1 className="text-xl font-bold my-6">
                         {item.title}
                     </h1>
-                    <h1 className="text-2xl font-bold my-6">
+                    <h1 className="text-xl font-bold my-6">
                         {item.subTitle}
                     </h1>
-                    <div className="my-2 text-2xl text-justify">
+                    <div className="text-xl text-justify italic">
                         <p>{item.question}</p>
                         
                         <p>{item.answer}</p>
                         <p>{item.college}</p>
-                        <div className="flex flex-col items-end my-8">
+                        <div className="flex flex-col items-end my-2 font-bold">
                             <p>{item.greetings}</p>
                             <p>{item.position}</p>
                         </div>
                     </div>                    
                 </div>
             ) : (    
-                <div className="my-2 text-2xl text-justify">
-                    <h1 className="text-2xl font-bold my-6">
+                <div className="my-2 text-xl text-justify">
+                    <h1 className="text-xl font-bold my-6">
                         {item.title}
                     </h1>
                     <div className='font-bold'>
@@ -63,8 +63,8 @@ const MainLayout = (props) => {
                     </div>
                     <hr />
                     <br />
-                    <p>{item.text}</p>
-                    <div className="flex flex-col items-end my-8">
+                    <p className='italic'>{item.text}</p>
+                    <div className="flex flex-col items-end font-bold">
                         <p>{item.by}</p>
                         <p>{item.position}</p>
                         <p>{item.department}</p>
@@ -80,16 +80,16 @@ const MainLayout = (props) => {
         <div className="container">
             <div className="row">
                 <div className="col-md-8 my-2">
-                    <section style={boxStyle}>
+                    <section style={boxStyle} className='rounded-lg'>
                         {renderedContent}                        
                     </section>      
                 </div>
-                <div className="col-md-4 my-2 rounded-sm border-2 border-[#14a800]">
+                <div className="col-md-4 my-2 rounded-lg border-2 border-[#14a800]">
                     {props.img ? (
                         <img 
                             src={props.img} 
                             alt="Intro Img" 
-                            style={{width:'auto', height:'90vh'}}
+                            style={{width:'100%', height:'90vh'}}
                         />
                     ) : (
                         <div>

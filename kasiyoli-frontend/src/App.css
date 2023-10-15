@@ -4,8 +4,8 @@ nav{
 
 body{
   background-color: #fff;
-  background-image: url("/public/img/img.jpg");
-  background-repeat: no-repeat;
+  background-image: url("/public/img/img4.svg");
+  background-repeat:repeat-y;
   background-position: center;
   background-attachment: fixed;
   background-size: 100%;

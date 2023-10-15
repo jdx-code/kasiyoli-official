@@ -14,13 +14,13 @@ const Image = (props) => {
                 })}
 
                 <h1 className='text-center text-4xl'>{title}</h1>
-                <div className="row row-cols-1 row-cols-md-6 g-5 flex justify-center my-12">                
+                <div className="row mx-8 row-cols-md-5 g-2 flex justify-center my-12">                
                     
                     {props.data.map((item) => {
                         return(
                             
-                            <div className="col p-0 border-2 rounded-lg border-[#14a800] mx-4">                                                                                            
-                                <div className="card p-2">
+                            <div className="card shadow-2xl w-[90%] sm:w-[44%] md:w-[40%] lg:w-[25%] rounded-md border-[#14a800]">                                                                                            
+                                <div className="card items-center">
                                     {item.file ? (
                                         <a href={item.file} data-fancybox="gallery" data-caption="Caption #2">
                                             <img src={item.file} className="h-72" />
@@ -32,17 +32,17 @@ const Image = (props) => {
                                     )}
                                     {item.description ? (                              
                                         <div className="card-body">
-                                            <h5 className="card-title">{item.description}</h5>
+                                            <h5 className="card-title text-center">{item.description}</h5>
                                             <p className="card-text">
                                             </p>
                                         </div>
-                                    ):(
+                                    ): item.studentName ? (
                                         <div className="card-body">
-                                            <h5 className="card-title">{item.studentName}</h5>
+                                            <h5 className="card-title text-center">{item.studentName}</h5>
                                             <p className="card-text">
                                             </p>
                                         </div>
-                                    )}
+                                    ) : ''}
 
                                 </div>
                             </div>

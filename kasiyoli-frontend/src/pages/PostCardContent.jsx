@@ -65,11 +65,11 @@ const PostCardContent = () => {
     <>
       <Navbar links="magazineLinks" volumeID={volumeID} />
 
-      <div className="container my-4">
+      <div className="container">
         <div className="row">
           <div className="col-md-8">
             <section>{postCardDetails}</section>
-            <div className="pagination">
+            <div className="pagination m-8">
               {Array.from({ length: totalPages }, (_, index) => (
                 <button
                   key={index}
@@ -81,7 +81,7 @@ const PostCardContent = () => {
               ))}
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 -mt-12">
             <SidebarCard title="ইয়াত বিচাৰক" />
             <SidebarCard post={filterdData} />
           </div>
