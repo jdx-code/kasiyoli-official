@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 const Art = () => {
 
@@ -27,6 +28,8 @@ const Art = () => {
             <Navbar links="magazineLinks" volumeID={volumeID} />
 
             <Image data={filterdData} />
+
+            <Footer />
         </>
     )
 }

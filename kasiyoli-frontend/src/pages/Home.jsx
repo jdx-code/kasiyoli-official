@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
 import MagazineCards from '../components/MagazineCard'
+import Footer from '../components/Footer'
 
 const Home = (props) => {
 
@@ -20,8 +21,17 @@ const Home = (props) => {
 
     return (
         <>
-            <Navbar links="homeLinks" />            
-            <MagazineCards data={data} />
+            {/* <Navbar links="homeLinks" />    */}
+            <div className='customContainer'>
+                <div className='mt-8'>
+                    <p className='text-6xl italic font-bold text-center text-orange-600'>কাঁচিয়লি</p>
+                    <p className='text-2xl italic text-center text-orange-600'> - ই আলোচনী</p>
+                </div>
+                
+                <MagazineCards data={data} />
+
+                <Footer />
+            </div>            
 
         </>
     )

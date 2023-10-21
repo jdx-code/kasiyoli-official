@@ -5,6 +5,7 @@ import SidebarCard from '../components/SidebarCard';
 import Navbar from '../components/Navbar';
 import { useParams } from 'react-router-dom';
 import '../App.css'
+import Footer from '../components/Footer';
 
 const PostCardContent = () => {
   const [post, setPost] = useState([]);
@@ -87,6 +88,8 @@ const PostCardContent = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };
