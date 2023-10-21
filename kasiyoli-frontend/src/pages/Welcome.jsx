@@ -2,6 +2,7 @@ import interviewDB from '../staticDB/interviewDB';
 import MainLayout from '../components/MainLayout';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Welcome = () => {    
 
@@ -24,7 +25,7 @@ const Welcome = () => {
             <section>
                 {editorialContent}
             </section>
-
+            <Footer />
         </>
     )
 }

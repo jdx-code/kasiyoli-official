@@ -27,9 +27,9 @@ const SidebarCard = (props) => {
                                                 )
                                             })}</p> 
                                         ) : (
-                                            <div className="input-group">                                                
-                                                <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                                                <button type="button" className="btn hover:bg-[#14a800] hover:text-white border-2 border-[#14a800]">search</button>
+                                            <div className="input-group flex flex-col">                                                
+                                                <input type="text" className="rounded-sm mb-2 h-8 w-full" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                                <button type="button" className="rounded-sm h-8 bg-[#00a816f8] hover:bg-[#06a800c4] text-white border-2 border-[#14a800]">ইয়াত বিচাৰক</button>
                                             </div> 
                                         )}
                                     </p>

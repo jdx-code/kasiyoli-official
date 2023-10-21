@@ -2,6 +2,7 @@ import welcomeDB from "../staticDB/welcomeDB"
 import MainLayout from "../components/MainLayout"
 import Navbar from "../components/Navbar"
 import { useParams } from 'react-router-dom';
+import Footer from "../components/Footer";
 
 const Editorial = () => {
 
@@ -24,7 +25,8 @@ const Editorial = () => {
           <section>
             {welcomeContentNew}
           </section>
-            
+          
+          <Footer />
         </>
     )
 }

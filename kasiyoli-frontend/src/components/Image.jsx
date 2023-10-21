@@ -14,7 +14,7 @@ const Image = (props) => {
                 })}
 
                 <h1 className='text-center text-4xl'>{title}</h1>
-                <div className="row mx-8 row-cols-md-5 g-2 flex justify-center my-12">                
+                <div className="row p-12 mb-6 row-cols-md-5 g-2 flex justify-center my-12">                
                     
                     {props.data.map((item) => {
                         return(

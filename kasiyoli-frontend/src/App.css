@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
 nav{
     background-color: #fff;
 }
@@ -5,10 +13,20 @@ nav{
 body{
   background-color: #fff;
   background-image: url("/public/img/img4.svg");
-  background-repeat:repeat-y;
+  background-repeat:no-repeat;
   background-position: center;
   background-attachment: fixed;
-  background-size: 100%;
+  background-size: cover;  
+}
+
+.customContainer {
+  min-height: calc(100vh - 120px); /* Adjust the height as needed, subtracting the height of the footer */
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
 }
 
 .pagination {
@@ -49,3 +67,4 @@ body{
   .active{
     @apply bg-[#14a800] text-white
   }
+

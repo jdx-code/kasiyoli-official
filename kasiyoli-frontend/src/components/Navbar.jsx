@@ -49,16 +49,11 @@ const Navbar = (props) => {
     // Function to generate navigation links
   const generateNavLinks = (links) => {
     return (
-      <div className="px-2 md:px-0 py-3 space-y-2 md:space-y-0 md:space-x-2 text-[#14a800] text-xl font-medium">
-        <NavLink 
-          className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-[#14a800] focus:outline-none focus:text-white focus:bg-[#14a800]"
-          to="/"
-        > 
-          Home
-        </NavLink>
+      <div className="px-2 md:px-0 py-3 space-y-2 md:space-y-0 md:space-x-2 text-[#14a800] text-md font-medium">
+        
         {links.map(({ linkName, to }) => (
           <NavLink 
-            className="block md:inline-block px-3 py-2 rounded-md hover:text-white hover:bg-[#14a800] focus:outline-none focus:text-white focus:bg-[#14a800]"
+            className="block md:inline-block font-semibold px-2 py-2 rounded-md hover:text-white hover:bg-[#14a800] focus:outline-none focus:text-white focus:bg-[#14a800]"
             key={to} 
             to={to}
           >

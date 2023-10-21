@@ -3,6 +3,7 @@ import axios from 'axios';
 import Image from '../components/Image';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 function Gallery() {
   const [data, setData] = useState([]);
@@ -49,6 +50,8 @@ function Gallery() {
           <Image data={filterData('14')} />
         </>
       ) : null /* Add a default case or render nothing when volumeID doesn't match either condition */}
+
+      <Footer />
     </div>
   );
 }
