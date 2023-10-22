@@ -10,6 +10,9 @@ const { render } = require('ejs')
 const Volume = require('../models/Volume')
 const Photo = require('../models/Photo')
 
+const visitedIPs = new Set();
+let visitorCount = 1487;
+
 module.exports = {
   getIndex : (req, res) => {
     if (req.isAuthenticated()) {
@@ -457,7 +460,36 @@ module.exports = {
         success:false
       })
     }
-  }
+  },
+
+  // getVisitorCount: async (req, res) => {
+  //   const clientIP = req.ip; // Get the visitor's IP address
+  //   // For simplicity, you can use the IP address as a unique identifier
+  //   if (!visitedIPs.includes(clientIP)) {
+  //     visitedIPs.push(clientIP);
+  //     visitorCount++;
+  //   }
+  //   res.json({ count: visitorCount });
+  //   next();
+  // }
+
+  getVisitorCount: async (req, res) => {
+    try{
+      const clientIP = req.connection.remoteAddress; // Get the visitor's IP address
+      // For simplicity, you can use the IP address as a unique identifier
+      if (!visitedIPs.has(clientIP)) {
+        visitedIPs.add(clientIP);
+        visitorCount++;
+      }
+      return res.json(visitorCount)
+    }catch(err){
+      return res.status(500).json({
+        message:"Not Found",
+        success:false
+      })
+    }
+
+  },
 
 }
 

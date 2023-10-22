@@ -38,4 +38,6 @@ router.post('/add-photo', upload.single('image'), authController.addPhoto)
 
 router.post('/upload-image', upload.single('file'), authController.uploadImage)
 
+router.get('/getVisitorCount', authController.getVisitorCount)
+
 module.exports = router
