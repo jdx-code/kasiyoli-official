@@ -53,14 +53,8 @@ const ReadMore = () => {
                     <div className="col-md-8 my-2">
 
                         {post ? (
-                            <div style={boxStyle}>
-                                <h1 className="text-center text-4xl">{post.postTitle}</h1>
-                                {/* <p>{post.postContent
-                                    .replace(/<(?:.|\n)*?>/gm, '')
-                                    .replace(/&zwnj;|&nbsp;/g, '')
-                                    .replace(/&rsquo;|&hellip;/g, '')
-                                    }
-                                </p>  */}
+                            <div style={boxStyle} className=' backdrop-blur-sm bg-white/30'>
+                                <h1 className="text-center text-4xl">{post.postTitle}</h1>                                
 
                                 <div className="text-xl" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(post.postContent)}}></div>
                             </div>

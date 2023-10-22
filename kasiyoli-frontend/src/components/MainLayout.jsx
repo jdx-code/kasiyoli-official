@@ -64,7 +64,7 @@ const MainLayout = (props) => {
                     <hr />
                     <br />
                     <p className='italic'>{item.text}</p>
-                    <div className="flex flex-col items-end font-bold">
+                    <div className="flex flex-col items-end font-bold italic">
                         <p>{item.by}</p>
                         <p>{item.position}</p>
                         <p>{item.department}</p>
@@ -80,7 +80,7 @@ const MainLayout = (props) => {
         <div className="container">
             <div className="row">
                 <div className="col-md-8 my-2">
-                    <section style={boxStyle} className='rounded-lg'>
+                    <section style={boxStyle} className='rounded-lg backdrop-blur-sm bg-white/30'>
                         {renderedContent}                        
                     </section>      
                 </div>

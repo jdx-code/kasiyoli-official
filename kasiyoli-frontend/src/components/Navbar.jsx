@@ -69,11 +69,10 @@ const Navbar = (props) => {
       <nav>
         <div className="mx-auto flex items-center justify-between h-20 px-4 bg-[#e6e6d6]">
           <div className="flex-shrink-0 font-bold tracking-wider">
-          <NavLink 
-            className="text-[#14a800] text-2xl hover:text-[#36922a]"            
+          <NavLink             
             to="/"
           >
-            <p>কাঁচিয়লি</p>
+            <p className="text-[#14a800] text-3xl hover:text-[#36922a]">কাঁচিয়লি</p>
           </NavLink>
             
           </div>

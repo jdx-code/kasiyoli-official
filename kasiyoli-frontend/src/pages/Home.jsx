@@ -1,40 +1,42 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import Navbar from '../components/Navbar'
-import MagazineCards from '../components/MagazineCard'
-import Footer from '../components/Footer'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Navbar from '../components/Navbar';
+import MagazineCards from '../components/MagazineCard';
+import Footer from '../components/Footer';
+import VisitorCounter from '../components/VisitorCounter';
 
 const Home = (props) => {
-
-    const [data, setData] = useState([])    
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-        // Fetch categories from the server when the component mounts
         axios.get(`${props.baseUrl}/admin/volume`)
-        .then((res) => {
-            setData(res.data)            
-        })
-        .catch((error) => {
-            console.error('Error fetching categories:', error);
-        });
-    }, []); // Empty dependency array to run the effect only once    
+            .then((res) => {
+                setData(res.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching categories:', error);
+            });
+    }, []);
 
     return (
         <>
-            {/* <Navbar links="homeLinks" />    */}
-            <div className='customContainer'>
-                <div className='mt-8'>
-                    <p className='text-6xl italic font-bold text-center text-orange-600'>কাঁচিয়লি</p>
-                    <p className='text-2xl italic text-center text-orange-600'> - ই আলোচনী</p>
+            <div className="customContainer">
+                <div className="mt-8 items-center">
+                    <div className="col-span-2 text-center">
+                        <p className="text-6xl italic font-bold text-orange-600">কাঁচিয়লি</p>
+                        <p className="text-2xl italic text-orange-600"> - ই আলোচনী</p>
+                    </div>
+                    <div className="text-right">
+                        <VisitorCounter />
+                    </div>
                 </div>
-                
+
                 <MagazineCards data={data} />
 
                 <Footer />
-            </div>            
-
+            </div>
         </>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

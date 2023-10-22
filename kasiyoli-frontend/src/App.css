@@ -4,7 +4,7 @@
 html, body{
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100vh;  
 }
 nav{
     background-color: #fff;
@@ -16,7 +16,7 @@ body{
   background-repeat:no-repeat;
   background-position: center;
   background-attachment: fixed;
-  background-size: cover;  
+  background-size: cover;    
 }
 
 .customContainer {
@@ -27,6 +27,11 @@ body{
 
 footer {
   margin-top: auto;
+  font-family: 'Sometype Mono', monospace;
+}
+
+.visitorCount{
+  font-family: 'Anton', sans-serif;
 }
 
 .pagination {
