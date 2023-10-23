@@ -33,14 +33,14 @@ const MainLayout = (props) => {
     const renderedContent = contentArray.map(item => (
         <div key={item.id} className='p-4'>
             {item.question ? (
-                <div>
-                    <h1 className="text-xl font-bold my-6">
+                <div className="text-md lg:text-xl">
+                    <h1 className="font-bold my-6 leading-relaxed">
                         {item.title}
                     </h1>
-                    <h1 className="text-xl font-bold my-6">
+                    <h1 className="font-bold my-6">
                         {item.subTitle}
                     </h1>
-                    <div className="text-xl text-justify italic">
+                    <div className="text-justify italic">
                         <p>{item.question}</p>
                         
                         <p>{item.answer}</p>
@@ -52,8 +52,8 @@ const MainLayout = (props) => {
                     </div>                    
                 </div>
             ) : (    
-                <div className="my-2 text-xl text-justify">
-                    <h1 className="text-xl font-bold my-6">
+                <div className="my-2 text-md lg:text-xl text-justify">
+                    <h1 className="font-bold my-6">
                         {item.title}
                     </h1>
                     <div className='font-bold'>
@@ -84,21 +84,20 @@ const MainLayout = (props) => {
                         {renderedContent}                        
                     </section>      
                 </div>
-                <div className="col-md-4 my-2 rounded-lg border-2 border-[#14a800]">
-                    {props.img ? (
+                <div className="col-md-4 p-2 rounded-lg">
+                    {props.img ? (                        
                         <img 
                             src={props.img} 
-                            alt="Intro Img" 
-                            style={{width:'100%', height:'90vh'}}
-                        />
+                            alt="Intro Img"                             
+                            className='w-[60%] h-[50vh] m-auto sm:w-[60%] md:w-full md:h-[88vh]'                            
+                        />                        
                     ) : (
-                        <div>
-                            <SidebarCard 
-                                title="ইয়াত বিচাৰক"
-                            />                    
-
+                        
+                        <div className="">
+                            {/* <SidebarCard title="ইয়াত বিচাৰক" /> */}
                             <SidebarCard post={post} />
                         </div>
+
                     )}
                 </div>
             </div>

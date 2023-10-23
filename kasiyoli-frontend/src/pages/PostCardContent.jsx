@@ -58,6 +58,7 @@ const PostCardContent = () => {
       title={item.postTitle}
       category={item.category.categoryName}
       volume={item.volume}
+      postContent={item.postContent}
     />
   ));
   
@@ -68,7 +69,7 @@ const PostCardContent = () => {
 
       <div className="container">
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-8">          
             <section>{postCardDetails}</section>
             <div className="pagination m-8">
               {Array.from({ length: totalPages }, (_, index) => (
@@ -82,8 +83,8 @@ const PostCardContent = () => {
               ))}
             </div>
           </div>
-          <div className="col-md-4 -mt-12">
-            <SidebarCard title="ইয়াত বিচাৰক" />
+          <div className="col-md-4 mt-2">
+            {/* <SidebarCard title="ইয়াত বিচাৰক" /> */}
             <SidebarCard post={filterdData} />
           </div>
         </div>

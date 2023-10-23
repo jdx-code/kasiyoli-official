@@ -7,13 +7,13 @@ const Image = (props) => {
     return (
         <>  
           
-            <div className="container">    
+            <div className="container text-2xl lg:text-3xl font-semibold">    
                 
                 {props.data.forEach(item => {                    
                         title = item.title                    
                 })}
 
-                <h1 className='text-center text-4xl'>{title}</h1>
+                <h1 className='text-center px-20 leading-8'>{title}</h1>
                 <div className="row p-12 mb-6 row-cols-md-5 g-2 flex justify-center my-12">                
                     
                     {props.data.map((item) => {
@@ -31,14 +31,14 @@ const Image = (props) => {
                                         </a>
                                     )}
                                     {item.description ? (                              
-                                        <div className="card-body">
-                                            <h5 className="card-title text-center">{item.description}</h5>
+                                        <div className="card-body font-light">
+                                            <h5 className="card-title text-lg font-semibold text-center">{item.description}</h5>
                                             <p className="card-text">
                                             </p>
                                         </div>
                                     ): item.studentName ? (
-                                        <div className="card-body">
-                                            <h5 className="card-title text-center">{item.studentName}</h5>
+                                        <div className="card-body font-light">
+                                            <h5 className="card-title text-lg font-semibold text-center">{item.studentName}</h5>
                                             <p className="card-text">
                                             </p>
                                         </div>

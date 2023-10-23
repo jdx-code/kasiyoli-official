@@ -7,7 +7,7 @@ const MagazineCards = (props) => {
         <>   
             <div className="container">
                 <div className="row">
-                    <div className='flex flex-col px-[77px] py-[60px] sm:flex-row sm:justify-center items-center'>
+                    <div className='flex flex-col px-[77px] sm:px-[25px] py-[60px] sm:flex-row sm:justify-center items-center'>
                         {props.data.map((item) => (               
                             
                             <div className="p-[10px] m-4 w-[75%] sm:w-[45%] md:w-[38%] lg:w-[30%] xl:w-[24%] bg-[#fff] shadow-2xl rounded-md hover:p-2 hover:border-2 hover:border-[#14a800]">

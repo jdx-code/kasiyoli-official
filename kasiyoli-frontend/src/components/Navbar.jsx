@@ -53,7 +53,7 @@ const Navbar = (props) => {
         
         {links.map(({ linkName, to }) => (
           <NavLink 
-            className="block md:inline-block font-semibold px-2 py-2 rounded-md hover:text-white hover:bg-[#14a800] focus:outline-none focus:text-white focus:bg-[#14a800]"
+            className="block md:inline-block text-md font-semibold px-[0.2rem] lg:px-[0.7rem] py-2 rounded-md hover:text-white hover:bg-[#14a800] focus:outline-none focus:text-white focus:bg-[#14a800]"
             key={to} 
             to={to}
           >
@@ -67,12 +67,12 @@ const Navbar = (props) => {
     return(
 
       <nav>
-        <div className="mx-auto flex items-center justify-between h-20 px-4 bg-[#e6e6d6]">
+        <div className="mx-auto flex items-center justify-between lg:justify-around h-20 px-4 bg-[#e6e6d6]">
           <div className="flex-shrink-0 font-bold tracking-wider">
           <NavLink             
             to="/"
           >
-            <p className="text-[#14a800] text-3xl hover:text-[#36922a]">কাঁচিয়লি</p>
+            <p className="text-[#14a800] text-2xl md:text-3xl hover:text-[#36922a]">কাঁচিয়লি</p>
           </NavLink>
             
           </div>

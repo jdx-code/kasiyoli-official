@@ -63,9 +63,9 @@ const ReadMore = () => {
                         )}
                     </div>
                     <div className="col-md-4 my-2">
-                            <SidebarCard 
+                            {/* <SidebarCard 
                                 title="ইয়াত বিচাৰক"
-                            />                    
+                            />                     */}
 
                             <SidebarCard post={getPost} />
                     </div>
