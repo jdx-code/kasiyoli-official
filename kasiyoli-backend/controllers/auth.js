@@ -209,7 +209,7 @@ module.exports = {
 
   getPosts: async (req, res) => {
     try {
-      const limit = parseInt(req.query.limit) || 5; // You can set the default limit as you wish
+      const limit = parseInt(req.query.limit) || 12; // You can set the default limit as you wish
   
       const post = await Post
         .find({ volume: req.params.volumeID })
