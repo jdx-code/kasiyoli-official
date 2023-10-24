@@ -22,8 +22,8 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-    let baseUrl = 'https://kasiyoli-client.onrender.com'
-    //  let baseUrl = 'http://localhost:5000'
+    let baseUrl = 'https://kasiyoli-server.onrender.com'
+    // let baseUrl = 'http://localhost:5000'
 
     return (
       <>
