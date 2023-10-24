@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Sidebar from '../../components/Sidebar';
+import baseUrl from '../../apiConfig';
 
 const VolumeManage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -35,7 +36,7 @@ const VolumeManage = () => {
     formDatas.append('volumeEditor', formData.volumeEditor);
 
     axios
-      .post('http://localhost:5000/admin/add-volume', formDatas, {
+      .post(`${baseUrl}/admin/add-volume`, formDatas, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

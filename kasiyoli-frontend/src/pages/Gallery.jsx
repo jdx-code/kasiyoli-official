@@ -4,13 +4,14 @@ import Image from '../components/Image';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import baseUrl from '../apiConfig';
 
 function Gallery() {
   const [data, setData] = useState([]);
   useEffect(() => {
     // Fetch categories from the server when the component mounts
     axios
-      .get('http://localhost:5000/admin/photo')
+      .get(`${baseUrl}/admin/photo`)
       .then((res) => {
         setData(res.data);
       })

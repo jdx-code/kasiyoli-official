@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from '../../components/Sidebar';
+import baseUrl from '../../apiConfig';
 
 function PhotoManagement() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -15,7 +16,7 @@ function PhotoManagement() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/admin/volume')
+      .get(`${baseUrl}/admin/volume`)
       .then((res) => {
         setVolume(res.data);
       })
@@ -48,7 +49,7 @@ function PhotoManagement() {
     formDatas.append('photoType', formData.photoType);
 
     axios
-      .post('http://localhost:5000/admin/add-photo', formDatas, {
+      .post(`${baseUrl}/admin/add-photo`, formDatas, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

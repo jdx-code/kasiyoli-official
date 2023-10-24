@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from '../../components/Sidebar';
+import baseUrl from '../../apiConfig';
 
 function SubCategory() {
     const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ function SubCategory() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post('http://localhost:5000/admin/add-subcategory', {
+        axios.post(`${baseUrl}/admin/add-subcategory`, {
             categoryName: formData.categoryName,
             subCategory: formData.subCategory,
             subCategoryDesc: formData.subCategoryDesc
@@ -32,7 +33,7 @@ function SubCategory() {
     }
 
     const getSubCategory = () => {
-        axios.get('http://localhost:5000/admin/sub-category')
+        axios.get(`${baseUrl}/admin/sub-category`)
         .then((res) => {
             setData(res.data)
         })
@@ -40,7 +41,7 @@ function SubCategory() {
 
     useEffect(() => {
         // Fetch categories from the server when the component mounts
-        axios.get('http://localhost:5000/admin/category')
+        axios.get(`${baseUrl}/admin/category`)
         .then((res) => {
             setCategories(res.data);
         })

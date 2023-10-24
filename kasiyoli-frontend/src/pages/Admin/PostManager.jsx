@@ -5,6 +5,7 @@ import "react-quill/dist/quill.snow.css";
 import Sidebar from '../../components/Sidebar';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import baseUrl from '../../apiConfig'
 
 const modules = {
   toolbar: [
@@ -37,7 +38,7 @@ const PostManager = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/admin/category')
+      .get(`${baseUrl}/admin/category`)
       .then((res) => {
         setCategories(res.data);
       })
@@ -48,7 +49,7 @@ const PostManager = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/admin/sub-category/${formData.category}`)
+      .get(`${baseUrl}/admin/sub-category/${formData.category}`)
       .then((res) => {
         setSubCategories(res.data);
       })
@@ -59,7 +60,7 @@ const PostManager = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/admin/volume')
+      .get(`${baseUrl}/admin/volume`)
       .then((res) => {
         setVolumes(res.data);
       })
@@ -90,7 +91,7 @@ const PostManager = () => {
     event.preventDefault();
 
       axios
-      .post("http://localhost:5000/admin/add-post", formData)
+      .post(`${baseUrl}/admin/add-post`, formData)
       .then((response) => {
         toast("Post created successfully !", {
           position: toast.POSITION.TOP_CENTER

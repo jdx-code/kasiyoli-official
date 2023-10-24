@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import baseUrl from '../apiConfig';
 
 const Art = () => {
 
@@ -11,7 +12,7 @@ const Art = () => {
 
     useEffect(() => {
         // Fetch categories from the server when the component mounts
-        axios.get('http://localhost:5000/admin/gallery')
+        axios.get(`${baseUrl}/admin/gallery`)
         .then((res) => {
             setData(res.data)            
         })

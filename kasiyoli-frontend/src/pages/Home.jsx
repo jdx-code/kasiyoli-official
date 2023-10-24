@@ -4,12 +4,13 @@ import Navbar from '../components/Navbar';
 import MagazineCards from '../components/MagazineCard';
 import Footer from '../components/Footer';
 import VisitorCounter from '../components/VisitorCounter';
+import baseUrl from '../apiConfig';
 
-const Home = (props) => {
+const Home = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get(`${props.baseUrl}/admin/volume`)
+        axios.get(`${baseUrl}/admin/volume`)
             .then((res) => {
                 setData(res.data);
             })

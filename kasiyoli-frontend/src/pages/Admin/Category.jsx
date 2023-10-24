@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Sidebar from '../../components/Sidebar';
+import baseUrl from '../../apiConfig';
 
 const Category = () => {
   const [formData, setFormData] = useState({
@@ -20,14 +21,14 @@ const Category = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:5000/admin/add-category', {
+    axios.post(`${baseUrl}/admin/add-category`, {
       categoryName: formData.categoryName,
       categoryDesc: formData.categoryDesc,
     });
   };
 
   const getCategory = () => {
-    axios.get('http://localhost:5000/admin/category').then((res) => {
+    axios.get(`${baseUrl}/admin/category`).then((res) => {
       setData(res.data);
     });
   };

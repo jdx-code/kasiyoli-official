@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+import baseUrl from '../apiConfig';
 
 const VisitorCounter = () => {
   const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
     // Make an API call to retrieve the visitor count
-    axios.get(`http://localhost:5000/admin/getVisitorCount`)
+    axios.get(`${baseUrl}/admin/getVisitorCount`)
         .then((res) => {
             setVisitorCount(res.data)            
         })

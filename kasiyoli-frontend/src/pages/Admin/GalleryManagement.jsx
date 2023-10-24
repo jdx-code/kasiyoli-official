@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from '../../components/Sidebar';
+import baseUrl from '../../apiConfig';
 
 function GalleryManagement() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -15,7 +16,7 @@ function GalleryManagement() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/admin/volume')
+      .get(`${baseUrl}/admin/volume`)
       .then((res) => {
         setVolume(res.data);
       })
@@ -45,7 +46,7 @@ function GalleryManagement() {
     formDatas.append('desc', formData.desc);
     formDatas.append('volume', formData.volume);
 
-    axios.post('http://localhost:5000/admin/add-gallery', formDatas, {
+    axios.post(`${baseUrl}/admin/add-gallery`, formDatas, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import { useParams } from 'react-router-dom';
 import '../App.css'
 import Footer from '../components/Footer';
+import baseUrl from '../apiConfig';
 
 const PostCardContent = () => {
   const [post, setPost] = useState([]);
@@ -19,7 +20,7 @@ const PostCardContent = () => {
   useEffect(() => {
   // Fetch posts from the server based on the current page
   setLoading(true);
-  Axios.get(`http://localhost:5000/admin/post/${volumeID}?page=${currentPage}`)
+  Axios.get(`${baseUrl}/admin/post/${volumeID}?page=${currentPage}`)
     .then((res) => {
       setPost(res.data.posts);
       setTotalPages(res.data.totalPages);
@@ -35,7 +36,7 @@ const PostCardContent = () => {
 
   useEffect(() => {
     // Fetch categories from the server when the component mounts
-    Axios.get(`http://localhost:5000/admin/get-post/${volumeID}`)
+    Axios.get(`${baseUrl}/admin/get-post/${volumeID}`)
     .then((res) => {            
         setAllPost(res.data);
     })

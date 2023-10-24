@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import SidebarCard from '../components/SidebarCard';
 import DOMPurify from "dompurify";
+import baseUrl from '../apiConfig';
 
 const ReadMore = () => {
     const { postID, volumeID } = useParams();
@@ -15,7 +16,7 @@ const ReadMore = () => {
 
     useEffect(() => {
         // Fetch a single post by ID from the server when the component mounts or postID changes
-        axios.get(`http://localhost:5000/admin/readmore/${postID}/${volumeID}`)
+        axios.get(`${baseUrl}/admin/readmore/${postID}/${volumeID}`)
             .then((res) => {
                 setPost(res.data);
             })
@@ -26,7 +27,7 @@ const ReadMore = () => {
 
     useEffect(() => {
         // Fetch categories from the server when the component mounts
-        axios.get(`http://localhost:5000/admin/get-post/${volumeID}`)
+        axios.get(`${baseUrl}/admin/get-post/${volumeID}`)
         .then((res) => {            
             setGetPost(res.data);
         })

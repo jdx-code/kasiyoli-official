@@ -1,8 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
-import About from './pages/About'
-import Contact from './pages/Contact'
 import Editorial from './pages/Editorial'
 import Interview from './pages/Interview'
 import Welcome from './pages/Welcome'
@@ -20,17 +18,12 @@ import ReadMore from './pages/ReadMore'
 
 import { useState, useEffect } from 'react';
 
-function App() {
-
-    let baseUrl = 'https://kasiyoli-server.onrender.com'
-    // let baseUrl = 'http://localhost:5000'
+function App() {    
 
     return (
       <>
         <Routes>
-            <Route path="/" element={<Home baseUrl={baseUrl}/>} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/" element={<Home />} />            
             <Route path="/editorial/:volumeID" element={<Editorial />} />
             <Route path="/welcome/:volumeID" element={<Welcome />} />
             <Route path="/interview/:volumeID" element={<Interview />} />
