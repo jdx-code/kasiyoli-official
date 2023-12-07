@@ -7,12 +7,14 @@ import VisitorCounter from '../components/VisitorCounter';
 import baseUrl from '../apiConfig';
 
 const Home = () => {
+    const [loading, setLoading] = useState(true)
     const [data, setData] = useState([]);
 
     useEffect(() => {
         axios.get(`${baseUrl}/admin/volume`)
             .then((res) => {
-                setData(res.data);
+                setData(res.data)
+                setLoading(false)
             })
             .catch((error) => {
                 console.error('Error fetching categories:', error);
@@ -31,8 +33,13 @@ const Home = () => {
                         <VisitorCounter />
                     </div>
                 </div>
-
-                <MagazineCards data={data} />
+                {loading ? (
+                    <div>
+                        <p>Loading..</p>
+                    </div>
+                ) : (
+                    <MagazineCards data={data} />    
+                )}                
 
                 <Footer />
             </div>
