@@ -10,10 +10,22 @@ const Home = () => {
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState([]);
 
+    const loadingData = [
+        {
+            _id: 1,
+            coverImage: 'https://res.cloudinary.com/djt3rjotn/image/upload/v1694413915/vqasop52lpxomrufvvxn.png',            
+        },
+        {
+            _id: 2,
+            coverImage: 'https://res.cloudinary.com/djt3rjotn/image/upload/v1694414651/ezkwbnzjrdddic4qisvj.jpg',
+            
+        }
+    ]
+
     useEffect(() => {
         axios.get(`${baseUrl}/admin/volume`)
             .then((res) => {
-                setData(res.data)
+                setData(res.data)                
                 setLoading(false)
             })
             .catch((error) => {
@@ -35,7 +47,10 @@ const Home = () => {
                 </div>
                 {loading ? (
                     <div>
-                        <p>Loading..</p>
+                        {/* <MagazineCards data={loadingData} /> */}
+
+                    <MagazineCards loadingData = {loadingData}/>
+
                     </div>
                 ) : (
                     <MagazineCards data={data} />    
