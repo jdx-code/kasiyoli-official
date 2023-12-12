@@ -42,7 +42,12 @@ const Home = () => {
                         <p className="text-2xl italic text-orange-600"> - ই আলোচনী</p>
                     </div>
                     <div className="text-right">
-                        <VisitorCounter />
+                        {loading ? (
+                            <span></span>
+                        ) : ( 
+                            <VisitorCounter />
+                        )}
+                        
                     </div>
                 </div>
                 {loading ? (
